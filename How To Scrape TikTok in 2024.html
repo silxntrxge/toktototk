@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://cdn.scrapfly.io/" crossorigin>
+    <link rel="preconnect" href="https://apis.google.com/" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com/" crossorigin>
+
+    <link rel="preload" href="https://cdn.scrapfly.io/0.0.155/www/public/fonts/IBMPlexMono-Regular.woff2?version=0.0.155" as="font" crossorigin>
+    <link rel="preload" href="/blog/assets/js/scripts.js?v=0.0.117_5.9.17" as="script"/>
+    <link rel="preload" href="/blog/assets/js/single.js?v=0.0.117_5.9.17" as="script"/>
+    <link rel="preload" href="/blog/public/cards.min.js?v=0.0.117_5.9.17" as="script"/>
+    <link rel="preload" href="/blog/assets/css/style.css?v=0.0.117_5.9.17" as="style"/>
+    <link rel="preload" href="https://scrapfly.io/blog/content/images/2021/12/logo.png" as="image"/>
+    
+    <title>How To Scrape TikTok in 2024</title>
+    <meta name="description" content="Learn how to scrape TikTok for profiles, posts, comments and search data through hidden TikTok APIs or hidden JSON datasets." />
+    <link rel="icon" href="https://scrapfly.io/blog/content/images/size/w256h256/2021/12/android-chrome-512x512.png" type="image/png" />
+    <link rel="canonical" href="https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="ScrapFly Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How To Scrape TikTok in 2024" />
+    <meta property="og:description" content="In this tutorial, we&#x27;ll explain how to scrape TikTok. We&#x27;ll extract data from various TikTok sources, such as posts, comments, profiles and search pages. Moreover, we&#x27;ll scrape these data through hidden TikTok APIs or hidden JSON datasets." />
+    <meta property="og:url" content="https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/" />
+    <meta property="og:image" content="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_banner.png" />
+    <meta property="article:published_time" content="2024-03-08T15:12:53.000Z" />
+    <meta property="article:modified_time" content="2024-08-22T15:12:04.000Z" />
+    <meta property="article:tag" content="Python" />
+    <meta property="article:tag" content="Hidden API" />
+    <meta property="article:tag" content="scrapeguide" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/Scrapfly" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How To Scrape TikTok in 2024" />
+    <meta name="twitter:description" content="In this tutorial, we&#x27;ll explain how to scrape TikTok. We&#x27;ll extract data from various TikTok sources, such as posts, comments, profiles and search pages. Moreover, we&#x27;ll scrape these data through hidden TikTok APIs or hidden JSON datasets." />
+    <meta name="twitter:url" content="https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/" />
+    <meta name="twitter:image" content="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_banner.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Mazen Ramadan" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python, Hidden API, scrapeguide" />
+    <meta name="twitter:site" content="@Scrapfly_dev" />
+    <meta property="og:image:width" content="1992" />
+    <meta property="og:image:height" content="1041" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "ScrapFly Blog",
+        "url": "https://scrapfly.io/blog/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://scrapfly.io/blog/content/images/2021/12/logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mazen Ramadan",
+        "url": "https://scrapfly.io/blog/author/mazen/",
+        "sameAs": []
+    },
+    "headline": "How To Scrape TikTok in 2024",
+    "url": "https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/",
+    "datePublished": "2024-03-08T15:12:53.000Z",
+    "dateModified": "2024-08-22T15:12:04.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_banner.svg",
+        "width": 1275,
+        "height": 666
+    },
+    "keywords": "Python, Hidden API, scrapeguide",
+    "description": "In this tutorial, we&#x27;ll explain how to scrape TikTok. We&#x27;ll extract data from various TikTok sources, such as posts, comments, profiles and search pages. Moreover, we&#x27;ll scrape these data through hidden TikTok APIs or hidden JSON datasets.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://scrapfly.io/blog/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.19" />
+    <link rel="alternate" type="application/rss+xml" title="ScrapFly Blog" href="https://scrapfly.io/blog/rss/" />
+    <script async src="/blog/public/cards.min.js?v=0.0.117_5.9.17"></script>
+    <meta name="google-site-verification" content="J5Z_OU-Ru4U4kVUiaFMY0-f1x85eHpzWs9VjdthLdWM" />
+
+    <link fetchpriority="high" rel="preload" href="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_banner_light.svg" as="image"/>
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/style.css?v=0.0.117_5.9.17"/>
+</head>
+<body class="post-template tag-python tag-hidden-api tag-scrapeguide">
+<div class="header-area sticky-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 unset">
+                <div class="header-area-inner d-flex justify-content-between align-items-center flex-wrap">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="https://scrapfly.io" class="plausible-event-name=explore plausible-event-source=logo plausible-event-interest=homepage">
+                            <img src="https://scrapfly.io/blog/content/images/2021/12/logo.png" alt="web scraping api" width="188" height="49">
+                        </a>
+                    </div>
+                    <!-- Menu sec -->
+                    <div class="menu-wrapper d-flex justify-content-between align-items-center">
+                        <div class="center-menu">
+                            <ul class="navbar-nav primary-nav ml-auto" id="nav">
+  <li class="nav-item">
+    <a class="nav-link plausible-event-name=explore plausible-event-source=nav plausible-event-interest=features"
+      id="features-link" href="https://scrapfly.io/#features">Features</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link plausible-event-name=explore plausible-event-source=nav plausible-event-interest=documentation"
+      id="documentation-link" href="https://scrapfly.io/docs">Documentation</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link plausible-event-name=explore plausible-event-source=nav plausible-event-interest=blog"
+      id="blog-link" href="/blog/">Blog</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link plausible-event-name=explore plausible-event-source=nav plausible-event-interest=knowledgebase"
+      id="knowledgebase-link" href="/blog/knowledgebase/">Knowledgebase</a>
+  </li>
+  <ul class="navbar-nav secondary-nav ml-auto">
+    <li class="nav-item">
+      <a class="btn btn-primary text-light plausible-event-name=register plausible-event-source=nav" href="/register">
+        Sign up
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-light text-primary plausible-event-name=login plausible-event-source=nav"
+        href="/login">Login</a>
+    </li>
+  </ul>
+</ul>
+
+                        </div>
+                        <!-- bar icon -->
+                        <div class="mobile-menu-bar d-xl-none d-flex align-items-center">
+                            <div class="bar-icon" data-navtarget="#nav">
+                                <div class="bar-line"></div>
+                                <div class="bar-line"></div>
+                                <div class="bar-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- mobile-menu-bar -->
+    <div class="mobile-menu-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="mobile-menu"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="post-section">
+    <div class="post-wrapper-content">
+        <div class="content-wrapper">
+            <div class="post-headlines">
+                <h1>How To Scrape TikTok in 2024</h1>
+                <div class="post-meta">
+                    <div class="post-meta__date">
+                        <time title="originally released Mar 08, 2024">Aug 22, 2024</time>
+                    </div>
+                    <div class="post-meta__tags">
+                        <a href="/blog/tag/python/" class="plausible-event-name=explore plausible-event-interest=content">Python</a>
+                        <a href="/blog/tag/hidden-api/" class="plausible-event-name=explore plausible-event-interest=content">Hidden API</a>
+                        <a href="/blog/tag/scrapeguide/" class="plausible-event-name=explore plausible-event-interest=content">scrapeguide</a>
+                    </div>
+                    <div class="post-meta__share">
+                        <ul class="social-icon">
+    <li>
+        <a target="_blank"
+            class="plausible-event-name=share plausible-event-share=twitter"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            href="https://twitter.com/share?text=How%20To%20Scrape%20TikTok%20in%202024&amp;url=https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">
+            <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.5028 2.3548C23.6012 2.7552 22.6324 3.024 21.616 3.1472C22.6548 2.5256 23.45 1.54 23.8252 0.3668C22.8536 0.9436 21.7756 1.3608 20.6332 1.5876C19.7176 0.6104 18.41 0 16.9652 0C14.1876 0 11.9364 2.2484 11.9364 5.026C11.9364 5.4208 11.9812 5.8044 12.0652 6.1712C7.8876 5.9612 4.1832 3.962 1.7052 0.9184C1.274 1.6604 1.0248 2.5256 1.0248 3.4468C1.0248 5.1912 1.9124 6.7284 3.2592 7.63C2.436 7.6048 1.6604 7.378 0.9828 7V7.0644C0.9828 9.5004 2.716 11.5304 5.0148 11.9924C4.5948 12.1072 4.1496 12.1688 3.6904 12.1688C3.3656 12.1688 3.052 12.138 2.7468 12.0792C3.3852 14.0756 5.2416 15.5288 7.4396 15.5708C5.7204 16.9176 3.556 17.7212 1.1984 17.7212C0.7924 17.7212 0.3948 17.6988 0 17.6512C2.226 19.0764 4.8664 19.908 7.7056 19.908C16.9512 19.908 22.008 12.25 22.008 5.6084C22.008 5.39 22.0024 5.1744 21.994 4.9588C22.9768 4.2476 23.8308 3.3628 24.5028 2.3548Z" fill="currentColor"/>
+</svg>        </a>
+    </li>
+    <li>
+        <a target="_blank"
+            class="plausible-event-name=share plausible-event-share=linkedin"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            href="https://www.linkedin.com/shareArticle?mini=true&url=https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.1151 1.87207H3.88505C2.82005 1.87207 1.95605 2.71507 1.95605 3.75607V26.2441C1.95605 27.2851 2.82005 28.1251 3.88505 28.1251H26.1151C27.1801 28.1251 28.0441 27.2851 28.0441 26.2441V3.75307C28.0411 2.71507 27.1771 1.87207 26.1151 1.87207ZM9.86405 23.8441H5.92505V11.9941H9.86405V23.8441V23.8441ZM7.89605 10.3771H7.86905C6.54605 10.3771 5.69405 9.46807 5.69405 8.32807C5.69405 7.16407 6.57605 6.27907 7.92005 6.27907C9.27005 6.27907 10.0981 7.16407 10.1221 8.32807C10.1221 9.46807 9.27005 10.3771 7.89605 10.3771ZM24.0721 23.8441H20.1301V17.5051C20.1301 15.9121 19.5631 14.8261 18.1381 14.8261C17.0461 14.8261 16.3981 15.5581 16.1131 16.2661C16.0111 16.5211 15.9871 16.8751 15.9871 17.2261V23.8501H12.0451C12.0451 23.8501 12.0961 13.1101 12.0451 11.9971H15.9871V13.6741C16.5091 12.8671 17.4481 11.7181 19.5361 11.7181C22.1281 11.7181 24.0721 13.4131 24.0721 17.0551V23.8441V23.8441Z" fill="currentColor"/>
+</svg>        </a>
+    </li>
+    <li>
+        <a target="_blank"
+            class="plausible-event-name=share plausible-event-share=facebook"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.2831 8.9908H14.6794V6.63C14.6794 5.7434 15.2696 5.5354 15.683 5.5354H18.2207V1.638L14.721 1.625C10.8392 1.625 9.95783 4.5318 9.95783 6.3934V8.9908H7.71143V13.0052H9.95783V24.3724H14.682V13.0078H17.8697L18.2831 8.9908Z" fill="currentColor"/>
+</svg>        </a>
+    </li>
+    <li class="copy-link-wrapper plausible-event-name=share plausible-event-share=copy">
+        <a class="copy-link bg-light-red" data-link="https://scrapfly.io/blog/blog/how-to-scrape-tiktok-python-json/" href="#">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.832 5.87385C25.983 4.96785 25.11 4.08585 24.204 3.23685C22.284 1.43985 19.41 1.41285 17.49 3.20385C16.119 4.48485 14.823 5.84385 13.494 7.16685C13.485 7.17585 13.482 7.18785 13.476 7.20285C13.47 7.22385 13.479 7.24785 13.497 7.25385C13.509 7.25985 13.518 7.26285 13.527 7.26285C13.575 7.26585 13.626 7.26585 13.674 7.26585C14.85 7.25085 15.957 7.50585 16.986 8.07885C17.151 8.17185 17.229 8.10285 17.331 7.99785C18.09 7.23585 18.846 6.47085 19.611 5.71785C20.334 5.00385 21.321 5.00685 22.038 5.72085C22.788 6.46485 23.535 7.21185 24.276 7.95885C24.978 8.66685 24.99 9.65685 24.285 10.3649C21.981 12.6899 19.665 15.0028 17.34 17.3098C17.142 17.5078 16.863 17.6638 16.596 17.7448C15.933 17.9488 15.375 17.7148 14.898 17.2348C14.28 16.6108 13.659 15.9929 13.05 15.3839C12.858 15.1919 12.549 15.1919 12.357 15.3839L10.737 17.0069C10.545 17.1989 10.545 17.5078 10.734 17.7028C11.394 18.3778 12.057 19.0678 12.744 19.7338C14.649 21.5818 17.703 21.5699 19.575 19.7459C20.337 19.0019 21.093 18.2519 21.843 17.4959C23.52 15.8129 25.221 14.1569 26.856 12.4349C28.551 10.6439 28.524 7.67985 26.832 5.87385ZM16.446 22.7369C16.419 22.7339 16.395 22.7338 16.368 22.7338C15.174 22.7548 14.043 22.4998 12.999 21.9178C12.828 21.8218 12.753 21.9059 12.654 22.0049C11.901 22.7579 11.151 23.5168 10.395 24.2638C9.64496 25.0048 8.67296 24.9989 7.92596 24.2549C7.22696 23.5589 6.53096 22.8599 5.83196 22.1609C4.96196 21.2909 4.95896 20.3728 5.82896 19.5028L12.504 12.8279C12.573 12.7589 12.642 12.6899 12.714 12.6239C13.242 12.1469 13.974 12.0389 14.589 12.3779C14.799 12.4919 14.985 12.6629 15.156 12.8339C15.762 13.4279 16.359 14.0309 16.95 14.6219C17.142 14.8139 17.451 14.8139 17.643 14.6219C18.192 14.0729 18.738 13.5299 19.302 12.9689C19.494 12.7769 19.491 12.4709 19.299 12.2789C18.525 11.5079 17.766 10.7129 16.935 10.0019C15.123 8.44485 12.3 8.51385 10.554 10.1459C9.31196 11.3099 8.12996 12.5309 6.92696 13.7339C5.66396 14.9999 4.37696 16.2418 3.15596 17.5498C1.43096 19.3948 1.45496 22.3018 3.18296 24.1528C4.02296 25.0528 4.89596 25.9229 5.79296 26.7659C7.69196 28.5509 10.578 28.5869 12.483 26.8109C13.86 25.5239 15.165 24.1589 16.503 22.8299C16.512 22.8209 16.515 22.8058 16.518 22.7878C16.518 22.7638 16.488 22.7399 16.446 22.7369V22.7369Z" fill="currentColor"/>
+</svg>
+            <span class="copied">Copied to clipboard</span>
+        </a>
+    </li>
+</ul>                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="post-full-content">
+                <!--kg-card-begin: html-->
+        <figure class="kg-card kg-image-card">
+          <img fetchpriority="high" loading="eager" src="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_banner_light.svg" class="kg-image medium-zoom-image" alt="How To Scrape TikTok in 2024" width="745" height="389">
+        </figure>
+        <!--kg-card-end: html--><!--kg-card-begin: markdown--><p>TikTok is one of the leading social media platforms, with an enormous traffic load. Imagine the amount of insights web scraping TikTok will allow for!</p>
+<p>In this article, we'll explain how to scrape TikTok. We'll extract data from various TikTok sources, such as posts, comments, profiles and search pages. Moreover, we'll scrape these data through hidden TikTok APIs or hidden JSON datasets. Let's get started!</p>
+<aside class="toc"></aside>
+<a class="github" target="_blank" href="https://github.com/scrapfly/scrapfly-scrapers/tree/main/tiktok-scraper">
+    <h2 id="full-tiktok-scraper-code" open="open">Latest TikTok Scraper Code</h2>
+    <div class="subtitle">https://github.com/scrapfly/scrapfly-scrapers/</div>
+</a>
+<details open class="legal shortcode-legal"><summary>Legal Disclaimer and Precautions</summary>
+<p>This tutorial covers popular web scraping techniques for education. Interacting with public servers requires diligence and respect and here's a good summary of what not to do:</p>
+<ul>
+  <li>Do not scrape at rates that could damage the website.</li>
+  <li>Do not scrape data that's not available publicly.</li>
+  <li>Do not store <abbr title="Personally Identifiable Information">PII</abbr> of EU citizens who are protected by GDPR.</li>
+  <li>Do not repurpose the <i>entire</i> public datasets which can be illegal in some countries.</li>
+</ul>
+<p>Scrapfly does not offer legal advice but these are good general rules to follow in web scraping<br>
+and for more you should consult a lawyer.</p>
+</details><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="why-scrape-tiktok">Why Scrape TikTok?</h2>
+<p>The amount of social interaction on TikTok is vast, allowing for gathering various insights for different use cases:</p>
+<ul>
+<li><strong>Analyzing trends</strong><br>
+Trends on TikTok are fast-changing, making it challenging to stay up to date with recent users' preferences. Scraping TikTok can capture these trend changes effectively along with their impact, which improves the marketing strategies to align with the users' interests.<br>
+<br></li>
+<li><strong>Lead generation</strong><br>
+Scraping TikTok allows businesses to identify marketing opportunities and new customers. This can be achieved by recognizing influencers with a relevant fan base that matches the business domain.<br>
+<br></li>
+<li><strong>Sentiment Analysis</strong><br>
+Web scraping TikTok is a good source for gathering text data found in comments, which can be researched by <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/intro-to-using-web-scraping-for-sentiment-analysis/">sentiment analysis</a> models for gathering opinions on a given subject.</li>
+</ul>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="setup">Setup</h2>
+<p>To web scrape TikTok, we'll use a few Python libraries:</p>
+<ul>
+<li><a href="https://pypi.org/project/httpx/" target="_blank" rel="noopener noreferrer" class="shortcode-url">httpx</a>: For sending HTTP requests to TikTok and getting the data in either HTML or JSON.</li>
+<li><a href="https://pypi.org/project/parsel/" target="_blank" rel="noopener noreferrer" class="shortcode-url">parsel</a>: For parsing the HTML and extracting elements using selectors, such as <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/parsing-html-with-xpath/">XPath</a> and <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/parsing-html-with-css/">CSS</a>.</li>
+<li><a href="https://pypi.org/project/jmespath/" target="_blank" rel="noopener noreferrer" class="shortcode-url">JMESPath</a>: For parsing and refining the JSON datasets to exclude unnecessary details.</li>
+<li><a href="https://pypi.org/project/loguru/" target="_blank" rel="noopener noreferrer" class="shortcode-url">loguru</a>: For monitoring and logging our TikTok scraper in beautiful terminal outputs.</li>
+<li><a href="https://scrapfly.io/docs/sdk/python" target="_blank" rel="noopener noreferrer" class="shortcode-url">scrapfly-sdk</a>: For scraping TikTok pages that require JavaScript rendering and using advanced scraping features using ScrapFly.</li>
+<li><a href="https://pypi.org/project/asyncio/" target="_blank" rel="noopener noreferrer" class="shortcode-url">asyncio</a>: For increasing our <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/web-scraping-speed/">increasing our web scraping</a> by running our code asynchronously.</li>
+</ul>
+<p>Note that <code>asyncio</code> comes pre-installed in Python. Use the following command to install the other packages:</p>
+<pre><code class="language-shell">pip install httpx parsel jmespath loguru 
+</code></pre>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="how-to-scrape-tiktok-profiles">How to Scrape TikTok Profiles?</h2>
+<p>Let's start building the first parts of our TikTok scraper by scraping profile pages. Profile pages can include two types of data:</p>
+<ul>
+<li>Main <strong>profile data</strong>, such as the name, ID followers and likes count.</li>
+<li><strong>Channel data</strong>, if the profile has any posts. It includes data about each video, such as the name, description and view statistics.</li>
+</ul>
+<p>Let's begin by scraping the profile data, which can be found under JavaScript <code>script</code> tags. To view this tag, follow the below steps:</p>
+<ul>
+<li>Go to any profile page on TikTok.</li>
+<li>Open the <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/browser-developer-tools-in-web-scraping/">browser developer tools</a> by pressing the <code>F12</code> key.</li>
+<li>Look for the <strong><code>script</code></strong> tag that starts with the <strong><code>__UNIVERSAL_DATA</code></strong> ID.</li>
+</ul>
+<p>The identified tag contains a comprehensive JSON dataset about the web app, browser and localization details. However, the profile data can be found under the <code>webapp.user-detail</code> key:</p>
+<figure class="kg-card kg-image-card kg-card-hascaption shortcode-img">
+            <img class="kg-image medium-zoom-image" loading="lazy" src="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_hidden-profile-data-1.webp" alt="hidden json data on profile pages" title="" width="700" height="341" srcset="https://scrapfly.io/blog/content/images/size/w300/how-to-scrape-tiktok-python-json_hidden-profile-data-1.webp 300w,
+https://scrapfly.io/blog/content/images/size/w600/how-to-scrape-tiktok-python-json_hidden-profile-data-1.webp 600w,
+https://scrapfly.io/blog/content/images/size/w1000/how-to-scrape-tiktok-python-json_hidden-profile-data-1.webp 1000w,
+https://scrapfly.io/blog/content/images/size/w1300/how-to-scrape-tiktok-python-json_hidden-profile-data-1.webp 1300w,
+https://scrapfly.io/blog/content/images/size/w2000/how-to-scrape-tiktok-python-json_hidden-profile-data-1.webp 2000w,"><figcaption>Hidden JSON data on profile pages</figcaption>
+            </figure>
+<p>The above data is commonly referred to as hidden web data. <strong>It's the same data on the page but before getting rendered into the HTML</strong>.</p>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption shortcode-ref">
+<a class="kg-bookmark-container" href="https://scrapfly.io/blog/how-to-scrape-hidden-web-data/">
+<div class="kg-bookmark-content">
+<div class="kg-bookmark-title">How to Scrape Hidden Web Data</div>
+<div class="kg-bookmark-description">
+<p>Learn what hidden data is through some common examples. You will also learn how to scrape it using regular expressions and other clever parsing algorithms.</p>
+</div>
+</div>
+<div class="kg-bookmark-thumbnail">
+<img src="https://scrapfly.io/blog/content/images/how-to-scrape-hidden-web-data_banner_light.svg" alt="How to Scrape Hidden Web Data" width="284" height="149">
+</div>
+</a>
+</figure>
+<p>So, to scrape the profile data, we'll request the TikTok profile page, select the <code>script</code> tag with the data and parse it:</p>
+<div class="tabs">
+<div data-tab class="active">Python</div>
+<div data-tab>ScrapFly</div>
+<div class="active">
+<pre><code class="language-python">import asyncio
+import json
+from typing import List, Dict
+from httpx import AsyncClient, Response
+from parsel import Selector
+from loguru import logger as log
+
+# initialize an async httpx client
+client = AsyncClient(
+    # enable http2
+    http2=True,
+    # add basic browser like headers to prevent being blocked
+    headers={
+        &quot;Accept-Language&quot;: &quot;en-US,en;q=0.9&quot;,
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;,
+        &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;,
+        &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
+    },
+)
+
+def parse_profile(response: Response):
+    &quot;&quot;&quot;parse profile data from hidden scripts on the HTML&quot;&quot;&quot;
+    assert response.status_code == 200, &quot;request is blocked, use the ScrapFly codetabs&quot;
+    selector = Selector(response.text)
+    data = selector.xpath(&quot;//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()&quot;).get()
+    profile_data = json.loads(data)[&quot;__DEFAULT_SCOPE__&quot;][&quot;webapp.user-detail&quot;][&quot;userInfo&quot;]  
+    return profile_data
+
+
+async def scrape_profiles(urls: List[str]) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape tiktok profiles data from their URLs&quot;&quot;&quot;
+    to_scrape = [client.get(url) for url in urls]
+    data = []
+    # scrape the URLs concurrently
+    for response in asyncio.as_completed(to_scrape):
+        response = await response
+        profile_data = parse_profile(response)
+        data.append(profile_data)
+    log.success(f&quot;scraped {len(data)} profiles from profile pages&quot;)
+    return data
+</code></pre>
+</div>
+<div>
+<pre><code class="language-python">import asyncio
+import json
+from typing import Dict, List
+from loguru import logger as log
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+
+SCRAPFLY = ScrapflyClient(key=&quot;Your ScrapFly API key&quot;)
+
+def parse_profile(response: ScrapeApiResponse):
+    &quot;&quot;&quot;parse profile data from hidden scripts on the HTML&quot;&quot;&quot;
+    selector = response.selector
+    data = selector.xpath(&quot;//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()&quot;).get()
+    profile_data = json.loads(data)[&quot;__DEFAULT_SCOPE__&quot;][&quot;webapp.user-detail&quot;][&quot;userInfo&quot;]  
+    return profile_data
+
+
+async def scrape_profiles(urls: List[str]) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape tiktok profiles data from their URLs&quot;&quot;&quot;
+    to_scrape = [ScrapeConfig(url, asp=True, country=&quot;US&quot;) for url in urls]
+    data = []
+    # scrape the URLs concurrently
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        profile_data = parse_profile(response)
+        data.append(profile_data)
+    log.success(f&quot;scraped {len(data)} profiles from profile pages&quot;)
+    return data
+</code></pre>
+</div>
+</div>
+<details class="is-code"><summary>Run the code</summary>
+<pre><code class="language-python">async def run():
+    profile_data = await scrape_profiles(
+        urls=[
+            &quot;https://www.tiktok.com/@oddanimalspecimens&quot;
+        ]
+    )
+    # save the result to a JSON file
+    with open(&quot;profile_data.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+        json.dump(profile_data, file, indent=2, ensure_ascii=False)
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(run())
+</code></pre>
+</details>
+<p>Let's go through the above code:</p>
+<ul>
+<li>Create an async <code>httpx</code> with basic browser headers to avoid blocking.</li>
+<li>Define a <code>parse_profiles</code> function to select the script tag and parse the profile data.</li>
+<li>Define a <code>scrape_profiles</code> function to request the profile URLs concurrently while parsing the data from each page.</li>
+</ul>
+<p>Running the above TikTok scraper will create a JSON file named <code>profile_data</code>. Here is what it looks like:</p>
+<details class="is-code"><summary>Output</summary>
+<pre><code class="language-json">[
+  {
+    &quot;user&quot;: {
+      &quot;id&quot;: &quot;6976999329680589829&quot;,
+      &quot;shortId&quot;: &quot;&quot;,
+      &quot;uniqueId&quot;: &quot;oddanimalspecimens&quot;,
+      &quot;nickname&quot;: &quot;Odd Animal Specimens&quot;,
+      &quot;avatarLarger&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7327535918275887147~c5_1080x1080.jpeg?lk3s=a5d48078&amp;x-expires=1709280000&amp;x-signature=1rRtT4jX0Tk5hK6cpSsDcqeU7cM%3D&quot;,
+      &quot;avatarMedium&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7327535918275887147~c5_720x720.jpeg?lk3s=a5d48078&amp;x-expires=1709280000&amp;x-signature=WXYAMT%2BIs9YV52R6jrg%2F1ccwdcE%3D&quot;,
+      &quot;avatarThumb&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7327535918275887147~c5_100x100.jpeg?lk3s=a5d48078&amp;x-expires=1709280000&amp;x-signature=rURTqWGfKNEiwl42nGtc8ufRIOw%3D&quot;,
+      &quot;signature&quot;: &quot;YOUTUBE: Odd Animal Specimens\nCONTACT: OddAnimalSpecimens@whalartalent.com&quot;,
+      &quot;createTime&quot;: 0,
+      &quot;verified&quot;: false,
+      &quot;secUid&quot;: &quot;MS4wLjABAAAAmiTQjtyN2Q_JQji6RgtgX2fKqOA-gcAAUU4SF9c7ktL3uPoWu0nLpBfqixgacB8u&quot;,
+      &quot;ftc&quot;: false,
+      &quot;relation&quot;: 0,
+      &quot;openFavorite&quot;: false,
+      &quot;bioLink&quot;: {
+        &quot;link&quot;: &quot;linktr.ee/oddanimalspecimens&quot;,
+        &quot;risk&quot;: 0
+      },
+      &quot;commentSetting&quot;: 0,
+      &quot;commerceUserInfo&quot;: {
+        &quot;commerceUser&quot;: false
+      },
+      &quot;duetSetting&quot;: 0,
+      &quot;stitchSetting&quot;: 0,
+      &quot;privateAccount&quot;: false,
+      &quot;secret&quot;: false,
+      &quot;isADVirtual&quot;: false,
+      &quot;roomId&quot;: &quot;&quot;,
+      &quot;uniqueIdModifyTime&quot;: 0,
+      &quot;ttSeller&quot;: false,
+      &quot;region&quot;: &quot;US&quot;,
+      &quot;profileTab&quot;: {
+        &quot;showMusicTab&quot;: false,
+        &quot;showQuestionTab&quot;: true,
+        &quot;showPlayListTab&quot;: true
+      },
+      &quot;followingVisibility&quot;: 1,
+      &quot;recommendReason&quot;: &quot;&quot;,
+      &quot;nowInvitationCardUrl&quot;: &quot;&quot;,
+      &quot;nickNameModifyTime&quot;: 0,
+      &quot;isEmbedBanned&quot;: false,
+      &quot;canExpPlaylist&quot;: true,
+      &quot;profileEmbedPermission&quot;: 1,
+      &quot;language&quot;: &quot;en&quot;,
+      &quot;eventList&quot;: [],
+      &quot;suggestAccountBind&quot;: false
+    },
+    &quot;stats&quot;: {
+      &quot;followerCount&quot;: 2600000,
+      &quot;followingCount&quot;: 6,
+      &quot;heart&quot;: 44600000,
+      &quot;heartCount&quot;: 44600000,
+      &quot;videoCount&quot;: 124,
+      &quot;diggCount&quot;: 0,
+      &quot;friendCount&quot;: 3
+    },
+    &quot;itemList&quot;: []
+  }
+]
+</code></pre>
+</details>
+<p>We can successfully scrape TikTok for profile data. However, we are missing the profile's video data. Let's extract it!</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="how-to-scrape-tiktok-channels">How To Scrape TikTok Channels?</h2>
+<p>In this section, we'll scrape channel posts. The data we'll scrape are video data, which are only found in profiles with posts. Hence, this profile type is referred to as a channel.</p>
+<p>The channel video data are loaded dynamically through JavaScript, where scrolling loads more data.</p>
+<!--kg-card-end: markdown--><figure class="kg-card kg-video-card"><div class="kg-video-container"><video src="https://scrapfly.io/blog/content/media/2024/02/channel-video-data.mp4" poster="https://img.spacergif.org/v1/1306x1032/0a/spacer.png" width="1306" height="1032" playsinline preload="metadata" style="background: transparent url('https://scrapfly.io/blog/content/images/2024/02/media-thumbnail-ember276.jpg') 50% 50% / cover no-repeat;" /></video><div class="kg-video-overlay"><button class="kg-video-large-play-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"/></svg></button></div><div class="kg-video-player-container"><div class="kg-video-player"><button class="kg-video-play-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.14 10.608 2.253.164A1.559 1.559 0 0 0 0 1.557v20.887a1.558 1.558 0 0 0 2.253 1.392L23.14 13.393a1.557 1.557 0 0 0 0-2.785Z"/></svg></button><button class="kg-video-pause-icon kg-video-hide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="1" width="7" height="22" rx="1.5" ry="1.5"/><rect x="14" y="1" width="7" height="22" rx="1.5" ry="1.5"/></svg></button><span class="kg-video-current-time">0:00</span><div class="kg-video-time">/<span class="kg-video-duration"></span></div><input type="range" class="kg-video-seek-slider" max="100" value="0"><button class="kg-video-playback-rate">1&#215;</button><button class="kg-video-unmute-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.189 2.021a9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1.794a.249.249 0 0 1 .221.133 9.73 9.73 0 0 0 7.924 4.85h.06a1 1 0 0 0 1-1V3.02a1 1 0 0 0-1.06-.998Z"/></svg></button><button class="kg-video-mute-icon kg-video-hide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.177 4.3a.248.248 0 0 0 .073-.176v-1.1a1 1 0 0 0-1.061-1 9.728 9.728 0 0 0-7.924 4.85.249.249 0 0 1-.221.133H5.25a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h.114a.251.251 0 0 0 .177-.073ZM23.707 1.706A1 1 0 0 0 22.293.292l-22 22a1 1 0 0 0 0 1.414l.009.009a1 1 0 0 0 1.405-.009l6.63-6.631A.251.251 0 0 1 8.515 17a.245.245 0 0 1 .177.075 10.081 10.081 0 0 0 6.5 2.92 1 1 0 0 0 1.061-1V9.266a.247.247 0 0 1 .073-.176Z"/></svg></button><input type="range" class="kg-video-volume-slider" max="100" value="100"></div></div></div></figure><!--kg-card-begin: markdown--><p>The above background XHR calls are loaded while scrolling down the page. These calls were sent to the endpoint <code>/api/post/item_list/</code>, which returns the channel video data through batches.</p>
+<p>To scrape channel data, we can request the <code>/post/item_list/</code> API endpoint directly. However, <strong>this endpoint requires many different parameters</strong>, which can be challenging to maintain. Therefore, we'll extract the data from the XHR calls.</p>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption shortcode-ref">
+<a class="kg-bookmark-container" href="https://scrapfly.io/blog/web-scraping-background-requests-with-headless-browsers-and-python/">
+<div class="kg-bookmark-content">
+<div class="kg-bookmark-title">Web Scraping Background Requests with Headless Browsers and Python</div>
+<div class="kg-bookmark-description">
+<p>Learn how to scrape data from background XHR calls. We'll go over a step-by-step guide on launching a headless browser to save background requests, accessing and extracting the requests' data.</p>
+</div>
+</div>
+<div class="kg-bookmark-thumbnail">
+<img src="https://scrapfly.io/blog/content/images/web-scraping-background-requests-with-headless-browsers-and-python_banner_light.svg" alt="Web Scraping Background Requests with Headless Browsers and Python" width="284" height="149">
+</div>
+</a>
+</figure>
+<p>TikTok allows non-logged-in users to view the profile pages. However, it restricts any actions unless you are logged in, meaning that <strong>we can't scroll down with the mouse actions</strong>. Therefore, <strong>we'll scroll down using JavaScript code</strong> that gets executed upon sending a request:</p>
+<pre><code class="language-js">function scrollToEnd(i) {
+    // check if already at the bottom and stop if there aren't more scrolls
+    if (window.innerHeight + window.scrollY &gt;= document.body.scrollHeight) {
+        console.log(&quot;Reached the bottom.&quot;);
+        return;
+    }
+
+    // scroll down
+    window.scrollTo(0, document.body.scrollHeight);
+
+    // set a maximum of 15 iterations
+    if (i &lt; 15) {
+        setTimeout(() =&gt; scrollToEnd(i + 1), 3000);
+    } else {
+        console.log(&quot;Reached the end of iterations.&quot;);
+    }
+}
+
+scrollToEnd(0);
+</code></pre>
+<p>Here, we create a JavaScript function to scroll down and wait between each scroll iteration for the XHR requests to finish loading. It has a maximum of 15 scrolls, which is sufficient for most profiles.</p>
+<p>Let's use the above JavaScript code to scrape TikTok channel data from XHR calls:</p>
+<pre><code class="language-python">import jmespath
+import asyncio
+import json
+from typing import Dict, List
+from loguru import logger as log
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+
+SCRAPFLY = ScrapflyClient(key=&quot;Your ScrapFly APi key&quot;)
+
+js_scroll_function = &quot;&quot;&quot;
+function scrollToEnd(i) {
+    // check if already at the bottom and stop if there aren't more scrolls
+    if (window.innerHeight + window.scrollY &gt;= document.body.scrollHeight) {
+        console.log(&quot;Reached the bottom.&quot;);
+        return;
+    }
+
+    // scroll down
+    window.scrollTo(0, document.body.scrollHeight);
+
+    // set a maximum of 15 iterations
+    if (i &lt; 15) {
+        setTimeout(() =&gt; scrollToEnd(i + 1), 3000);
+    } else {
+        console.log(&quot;Reached the end of iterations.&quot;);
+    }
+}
+
+scrollToEnd(0);
+&quot;&quot;&quot;
+
+def parse_channel(response: ScrapeApiResponse):
+    &quot;&quot;&quot;parse channel video data from XHR calls&quot;&quot;&quot;
+    # extract the xhr calls and extract the ones for videos
+    _xhr_calls = response.scrape_result[&quot;browser_data&quot;][&quot;xhr_call&quot;]
+    post_calls = [c for c in _xhr_calls if &quot;/api/post/item_list/&quot; in c[&quot;url&quot;]]
+    post_data = []
+    for post_call in post_calls:
+        try:
+            data = json.loads(post_call[&quot;response&quot;][&quot;body&quot;])[&quot;itemList&quot;]
+        except Exception:
+            raise Exception(&quot;Post data couldn't load&quot;)
+        post_data.extend(data)
+    # parse all the data using jmespath
+    parsed_data = []
+    for post in post_data:
+        result = jmespath.search(
+            &quot;&quot;&quot;{
+            createTime: createTime,
+            desc: desc,
+            id: id,
+            stats: stats,
+            contents: contents[].{desc: desc, textExtra: textExtra[].{hashtagName: hashtagName}},
+            video: video
+            }&quot;&quot;&quot;,
+            post
+        )
+        parsed_data.append(result)    
+    return parsed_data
+
+
+async def scrape_channel(url: str) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape video data from a channel (profile with videos)&quot;&quot;&quot;
+    log.info(f&quot;scraping channel page with the URL {url} for post data&quot;)
+    response = await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, asp=True, country=&quot;GB&quot;, render_js=True, rendering_wait=2000, js=js_scroll_function
+    ))
+    data = parse_channel(response)
+    log.success(f&quot;scraped {len(data)} posts data&quot;)
+    return data
+</code></pre>
+<details class="is-code"><summary>Run the code</summary>
+<pre><code class="language-python">async def run():
+    channel_data = await scrape_channel(
+        url=&quot;https://www.tiktok.com/@oddanimalspecimens&quot;
+    )
+    # save the result to a JSON file
+    with open(&quot;channel_data.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+        json.dump(channel_data, file, indent=2, ensure_ascii=False)
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(run())
+</code></pre>
+</details>
+<p>Let's break down the execution flow of the above TikTok web scraping code:</p>
+<ul>
+<li>A request with a headless browser is sent to the profile page.</li>
+<li>The JavaScript scroll function gets executed.</li>
+<li>More channel video data are loaded through background XHR calls.</li>
+<li>The <code>parse_channel</code> function iterates over the responses of all the XHR calls and saves the video data into the <code>post_data</code> array.</li>
+<li>The channel data are refined using <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/parse-json-jmespath-python/">JMESPath</a> to exclude the unnecessary details.</li>
+</ul>
+<p>We have extracted a small portion of each video data from the responses we got. However, the full response includes further details that might be useful. Here is a sample output for the results we got:</p>
+<details class="is-code"><summary>Sample output</summary>
+<pre><code class="language-json">[
+    {
+        &quot;createTime&quot;: 1675963028,
+        &quot;desc&quot;: &quot;Mouse to Whale Vertebrae - What bone should I do next? How big is a mouse vertebra? How big is a whale vertebrae? A lot bigger, but all vertebrae share the same shape. Specimen use made possible by the University of Michigan Museum of Zoology. #animals #science #learnontiktok &quot;,
+        &quot;id&quot;: &quot;7198206283571285294&quot;,
+        &quot;stats&quot;: {
+            &quot;collectCount&quot;: 92400,
+            &quot;commentCount&quot;: 5464,
+            &quot;diggCount&quot;: 1500000,
+            &quot;playCount&quot;: 14000000,
+            &quot;shareCount&quot;: 11800
+        },
+        &quot;contents&quot;: [
+            {
+                &quot;desc&quot;: &quot;Mouse to Whale Vertebrae - What bone should I do next? How big is a mouse vertebra? How big is a whale vertebrae? A lot bigger, but all vertebrae share the same shape. Specimen use made possible by the University of Michigan Museum of Zoology. #animals #science #learnontiktok &quot;,
+                &quot;textExtra&quot;: [
+                    {
+                        &quot;hashtagName&quot;: &quot;animals&quot;
+                    },
+                    {
+                        &quot;hashtagName&quot;: &quot;science&quot;
+                    },
+                    {
+                        &quot;hashtagName&quot;: &quot;learnontiktok&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;video&quot;: {
+            &quot;bitrate&quot;: 441356,
+            &quot;bitrateInfo&quot;: [
+                ....
+            ],
+            &quot;codecType&quot;: &quot;h264&quot;,
+            &quot;cover&quot;: &quot;https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/3a2c21cd21ad4410b8ad7ab606aa0f45_1675963028?x-expires=1709287200&amp;x-signature=Iv3PLyTi3PIWT4QUewp6MPnRU9c%3D&quot;,
+            &quot;definition&quot;: &quot;540p&quot;,
+            &quot;downloadAddr&quot;: &quot;https://v16-webapp-prime.tiktok.com/video/tos/maliva/tos-maliva-ve-0068c799-us/ed00b2ad6b9b4248ab0a4dd8494b9cfc/?a=1988&amp;ch=0&amp;cr=3&amp;dr=0&amp;lr=tiktok_m&amp;cd=0%7C0%7C1%7C&amp;cv=1&amp;br=932&amp;bt=466&amp;bti=ODszNWYuMDE6&amp;cs=0&amp;ds=3&amp;ft=4fUEKMvt8Zmo0K4Mi94jVhstrpWrKsd.&amp;mime_type=video_mp4&amp;qs=0&amp;rc=ZTs1ZTw8aTZmZzU8ZGdpNkBpanFrZWk6ZmlsaTMzZzczNEBgLmJgYTQ0NjQxYDQuXi81YSNtMjZocjRvZ2ZgLS1kMS9zcw%3D%3D&amp;btag=e00088000&amp;expire=1709138858&amp;l=20240228104720CEC3E63CBB78C407D3AE&amp;ply_type=2&amp;policy=2&amp;signature=b86d518a02194c8bd389986d95b546a8&amp;tk=tt_chain_token&quot;,
+            &quot;duration&quot;: 16,
+            &quot;dynamicCover&quot;: &quot;https://p19-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/348b414f005f4e49877e6c5ebe620832_1675963029?x-expires=1709287200&amp;x-signature=xJyE12Y5TPj2IYQJF6zJ6%2FALwVw%3D&quot;,
+            &quot;encodeUserTag&quot;: &quot;&quot;,
+            &quot;encodedType&quot;: &quot;normal&quot;,
+            &quot;format&quot;: &quot;mp4&quot;,
+            &quot;height&quot;: 1024,
+            &quot;id&quot;: &quot;7198206283571285294&quot;,
+            &quot;originCover&quot;: &quot;https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/3f677464b38a4457959a7b329002defe_1675963028?x-expires=1709287200&amp;x-signature=KX5gLesyY80rGeHg6ywZnKVOUnY%3D&quot;,
+            &quot;playAddr&quot;: &quot;https://v16-webapp-prime.tiktok.com/video/tos/maliva/tos-maliva-ve-0068c799-us/e9748ee135d04a7da145838ad43daa8e/?a=1988&amp;ch=0&amp;cr=3&amp;dr=0&amp;lr=unwatermarked&amp;cd=0%7C0%7C0%7C&amp;cv=1&amp;br=862&amp;bt=431&amp;bti=ODszNWYuMDE6&amp;cs=0&amp;ds=6&amp;ft=4fUEKMvt8Zmo0K4Mi94jVhstrpWrKsd.&amp;mime_type=video_mp4&amp;qs=0&amp;rc=OzRlNzNnPDtlOTxpZjMzNkBpanFrZWk6ZmlsaTMzZzczNEAzYzI0MC1gNl8xMzUxXmE2YSNtMjZocjRvZ2ZgLS1kMS9zcw%3D%3D&amp;btag=e00088000&amp;expire=1709138858&amp;l=20240228104720CEC3E63CBB78C407D3AE&amp;ply_type=2&amp;policy=2&amp;signature=21ea870dc90edb60928080a6bdbfd23a&amp;tk=tt_chain_token&quot;,
+            &quot;ratio&quot;: &quot;540p&quot;,
+            &quot;subtitleInfos&quot;: [
+                ....
+            ],
+            &quot;videoQuality&quot;: &quot;normal&quot;,
+            &quot;volumeInfo&quot;: {
+                &quot;Loudness&quot;: -15.3,
+                &quot;Peak&quot;: 0.79433
+            },
+            &quot;width&quot;: 576,
+            &quot;zoomCover&quot;: {
+                &quot;240&quot;: &quot;https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/3a2c21cd21ad4410b8ad7ab606aa0f45_1675963028~tplv-photomode-zoomcover:240:240.avif?x-expires=1709287200&amp;x-signature=UV1mNc2EHUy6rf9eRQvkS%2FX%2BuL8%3D&quot;,
+                &quot;480&quot;: &quot;https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/3a2c21cd21ad4410b8ad7ab606aa0f45_1675963028~tplv-photomode-zoomcover:480:480.avif?x-expires=1709287200&amp;x-signature=PT%2BCf4%2F4MC70e2VWHJC40TNv%2Fbc%3D&quot;,
+                &quot;720&quot;: &quot;https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/3a2c21cd21ad4410b8ad7ab606aa0f45_1675963028~tplv-photomode-zoomcover:720:720.avif?x-expires=1709287200&amp;x-signature=3t7Dxca4pBoNYtzoYzui8ZWdALM%3D&quot;,
+                &quot;960&quot;: &quot;https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/3a2c21cd21ad4410b8ad7ab606aa0f45_1675963028~tplv-photomode-zoomcover:960:960.avif?x-expires=1709287200&amp;x-signature=aKcJ0jxPTQx3YMV5lPLRlLMrkso%3D&quot;
+            }
+        }
+    },
+    ....
+]
+</code></pre>
+</details>
+<p>The above code extracted over a hundred video data with a few lines of code in less than a minute. That's pretty powerful!</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="how-to-scrape-tiktok-posts">How To Scrape TikTok Posts?</h2>
+<p>Let's continue with our TikTok scraping project. In this section, we'll scrape video data, which represents TikTok posts. Similar to profile pages, post data can be found as hidden data under <code>script</code> tags.</p>
+<p>Go to any video on TikTok, inspect the page and search for the following selector, which we have used earlier:</p>
+<pre><code class="language-shell">//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()
+</code></pre>
+<p>The post data in the above <code>script</code> tag looks like this:</p>
+<figure class="kg-card kg-image-card kg-card-hascaption shortcode-img">
+            <img class="kg-image medium-zoom-image" loading="lazy" src="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_post-hidden-data.webp" alt="hidden data of tiktok posts" title="" width="700" height="341" srcset="https://scrapfly.io/blog/content/images/size/w300/how-to-scrape-tiktok-python-json_post-hidden-data.webp 300w,
+https://scrapfly.io/blog/content/images/size/w600/how-to-scrape-tiktok-python-json_post-hidden-data.webp 600w,
+https://scrapfly.io/blog/content/images/size/w1000/how-to-scrape-tiktok-python-json_post-hidden-data.webp 1000w,
+https://scrapfly.io/blog/content/images/size/w1300/how-to-scrape-tiktok-python-json_post-hidden-data.webp 1300w,
+https://scrapfly.io/blog/content/images/size/w2000/how-to-scrape-tiktok-python-json_post-hidden-data.webp 2000w,"><figcaption>Hidden data on TikTok posts</figcaption>
+            </figure>
+<p>Let's scrape TikTok posts by extracting and parsing the above data:</p>
+<div class="tabs">
+<div data-tab class="active">Python</div>
+<div data-tab>ScrapFly</div>
+<div class="active">
+<pre><code class="language-python">import jmespath
+import asyncio
+import json
+from typing import List, Dict
+from httpx import AsyncClient, Response
+from parsel import Selector
+from loguru import logger as log
+
+# initialize an async httpx client
+client = AsyncClient(
+    # enable http2
+    http2=True,
+    # add basic browser like headers to prevent being blocked
+    headers={
+        &quot;Accept-Language&quot;: &quot;en-US,en;q=0.9&quot;,
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;,
+        &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;,
+        &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
+    },
+)
+
+def parse_post(response: Response) -&gt; Dict:
+    &quot;&quot;&quot;parse hidden post data from HTML&quot;&quot;&quot;
+    assert response.status_code == 200, &quot;request is blocked, use the ScrapFly codetabs&quot;    
+    selector = Selector(response.text)
+    data = selector.xpath(&quot;//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()&quot;).get()
+    post_data = json.loads(data)[&quot;__DEFAULT_SCOPE__&quot;][&quot;webapp.video-detail&quot;][&quot;itemInfo&quot;][&quot;itemStruct&quot;]
+    parsed_post_data = jmespath.search(
+        &quot;&quot;&quot;{
+        id: id,
+        desc: desc,
+        createTime: createTime,
+        video: video.{duration: duration, ratio: ratio, cover: cover, playAddr: playAddr, downloadAddr: downloadAddr, bitrate: bitrate},
+        author: author.{id: id, uniqueId: uniqueId, nickname: nickname, avatarLarger: avatarLarger, signature: signature, verified: verified},
+        stats: stats,
+        locationCreated: locationCreated,
+        diversificationLabels: diversificationLabels,
+        suggestedWords: suggestedWords,
+        contents: contents[].{textExtra: textExtra[].{hashtagName: hashtagName}}
+        }&quot;&quot;&quot;,
+        post_data
+    )
+    return parsed_post_data
+
+
+async def scrape_posts(urls: List[str]) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape tiktok posts data from their URLs&quot;&quot;&quot;
+    to_scrape = [client.get(url) for url in urls]
+    data = []
+    for response in asyncio.as_completed(to_scrape):
+        response = await response
+        post_data = parse_post(response)
+        data.append(post_data)
+    log.success(f&quot;scraped {len(data)} posts from post pages&quot;)
+    return data
+</code></pre>
+</div>
+<div>
+<pre><code class="language-python">import jmespath
+import asyncio
+import json
+from typing import Dict, List
+from loguru import logger as log
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+
+SCRAPFLY = ScrapflyClient(key=&quot;Your ScrapFly API key&quot;)
+
+def parse_post(response: ScrapeApiResponse) -&gt; Dict:
+    &quot;&quot;&quot;parse hidden post data from HTML&quot;&quot;&quot;
+    selector = response.selector
+    data = selector.xpath(&quot;//script[@id='__UNIVERSAL_DATA_FOR_REHYDRATION__']/text()&quot;).get()
+    post_data = json.loads(data)[&quot;__DEFAULT_SCOPE__&quot;][&quot;webapp.video-detail&quot;][&quot;itemInfo&quot;][&quot;itemStruct&quot;]
+    parsed_post_data = jmespath.search(
+        &quot;&quot;&quot;{
+        id: id,
+        desc: desc,
+        createTime: createTime,
+        video: video.{duration: duration, ratio: ratio, cover: cover, playAddr: playAddr, downloadAddr: downloadAddr, bitrate: bitrate},
+        author: author.{id: id, uniqueId: uniqueId, nickname: nickname, avatarLarger: avatarLarger, signature: signature, verified: verified},
+        stats: stats,
+        locationCreated: locationCreated,
+        diversificationLabels: diversificationLabels,
+        suggestedWords: suggestedWords,
+        contents: contents[].{textExtra: textExtra[].{hashtagName: hashtagName}}
+        }&quot;&quot;&quot;,
+        post_data
+    )
+    return parsed_post_data
+
+
+async def scrape_posts(urls: List[str]) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape tiktok posts data from their URLs&quot;&quot;&quot;
+    to_scrape = [ScrapeConfig(url, country=&quot;US&quot;, asp=True) for url in urls]
+    data = []
+    async for response in SCRAPFLY.concurrent_scrape(to_scrape):
+        post_data = parse_post(response)
+        data.append(post_data)
+    log.success(f&quot;scraped {len(data)} posts from post pages&quot;)
+    return data
+</code></pre>
+</div>
+</div>
+<details class="is-code"><summary>Run the code</summary>
+<pre><code class="language-python">async def run():
+    post_data = await scrape_posts(
+        urls=[
+            &quot;https://www.tiktok.com/@oddanimalspecimens/video/7198206283571285294&quot;
+        ]
+    )
+    # save the result to a JSON file
+    with open(&quot;post_data.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+        json.dump(post_data, file, indent=2, ensure_ascii=False)
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(run())
+</code></pre>
+</details>
+<p>In the above code, we define two functions. Let's break them down:</p>
+<ul>
+<li><code>parse_post</code>: For parsing the post data from the script tag and refining it with JMESPath to extract the useful details only.</li>
+<li><code>scrape_posts</code>: For scraping multiple post pages concurrently by adding the URLs to a scraping list and requesting them concurrently.</li>
+</ul>
+<p>Here is what the created <code>post_data</code> file should look like:</p>
+<details class="is-code"><summary>Output</summary>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;7198206283571285294&quot;,
+    &quot;desc&quot;: &quot;Mouse to Whale Vertebrae - What bone should I do next? How big is a mouse vertebra? How big is a whale vertebrae? A lot bigger, but all vertebrae share the same shape. Specimen use made possible by the University of Michigan Museum of Zoology. #animals #science #learnontiktok &quot;,
+    &quot;createTime&quot;: &quot;1675963028&quot;,
+    &quot;video&quot;: {
+      &quot;duration&quot;: 16,
+      &quot;ratio&quot;: &quot;540p&quot;,
+      &quot;cover&quot;: &quot;https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/3a2c21cd21ad4410b8ad7ab606aa0f45_1675963028?x-expires=1709290800&amp;x-signature=YP7J1o2kv1dLnyjv3hqwBBk487g%3D&quot;,
+      &quot;playAddr&quot;: &quot;https://v16-webapp-prime.tiktok.com/video/tos/maliva/tos-maliva-ve-0068c799-us/e9748ee135d04a7da145838ad43daa8e/?a=1988&amp;ch=0&amp;cr=3&amp;dr=0&amp;lr=unwatermarked&amp;cd=0%7C0%7C0%7C&amp;cv=1&amp;br=862&amp;bt=431&amp;bti=ODszNWYuMDE6&amp;cs=0&amp;ds=6&amp;ft=4fUEKMUj8Zmo0Qnqi94jVZgzZpWrKsd.&amp;mime_type=video_mp4&amp;qs=0&amp;rc=OzRlNzNnPDtlOTxpZjMzNkBpanFrZWk6ZmlsaTMzZzczNEAzYzI0MC1gNl8xMzUxXmE2YSNtMjZocjRvZ2ZgLS1kMS9zcw%3D%3D&amp;btag=e00088000&amp;expire=1709142489&amp;l=202402281147513D9DCF4EE8518C173598&amp;ply_type=2&amp;policy=2&amp;signature=c0c4220f863ca89053ec2a71b180f226&amp;tk=tt_chain_token&quot;,
+      &quot;downloadAddr&quot;: &quot;https://v16-webapp-prime.tiktok.com/video/tos/maliva/tos-maliva-ve-0068c799-us/ed00b2ad6b9b4248ab0a4dd8494b9cfc/?a=1988&amp;ch=0&amp;cr=3&amp;dr=0&amp;lr=tiktok_m&amp;cd=0%7C0%7C1%7C&amp;cv=1&amp;br=932&amp;bt=466&amp;bti=ODszNWYuMDE6&amp;cs=0&amp;ds=3&amp;ft=4fUEKMUj8Zmo0Qnqi94jVZgzZpWrKsd.&amp;mime_type=video_mp4&amp;qs=0&amp;rc=ZTs1ZTw8aTZmZzU8ZGdpNkBpanFrZWk6ZmlsaTMzZzczNEBgLmJgYTQ0NjQxYDQuXi81YSNtMjZocjRvZ2ZgLS1kMS9zcw%3D%3D&amp;btag=e00088000&amp;expire=1709142489&amp;l=202402281147513D9DCF4EE8518C173598&amp;ply_type=2&amp;policy=2&amp;signature=779a4044a0768f870abed13e1401608f&amp;tk=tt_chain_token&quot;,
+      &quot;bitrate&quot;: 441356
+    },
+    &quot;author&quot;: {
+      &quot;id&quot;: &quot;6976999329680589829&quot;,
+      &quot;uniqueId&quot;: &quot;oddanimalspecimens&quot;,
+      &quot;nickname&quot;: &quot;Odd Animal Specimens&quot;,
+      &quot;avatarLarger&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7327535918275887147~c5_1080x1080.jpeg?lk3s=a5d48078&amp;x-expires=1709290800&amp;x-signature=F8hu8G4VOFyd%2F0TN7QEZcGLNmW0%3D&quot;,
+      &quot;signature&quot;: &quot;YOUTUBE: Odd Animal Specimens\nCONTACT: OddAnimalSpecimens@whalartalent.com&quot;,
+      &quot;verified&quot;: false
+    },
+    &quot;stats&quot;: {
+      &quot;diggCount&quot;: 1500000,
+      &quot;shareCount&quot;: 11800,
+      &quot;commentCount&quot;: 5471,
+      &quot;playCount&quot;: 14000000,
+      &quot;collectCount&quot;: &quot;92420&quot;
+    },
+    &quot;locationCreated&quot;: &quot;US&quot;,
+    &quot;diversificationLabels&quot;: [
+      &quot;Science&quot;,
+      &quot;Education&quot;,
+      &quot;Culture &amp; Education &amp; Technology&quot;
+    ],
+    &quot;suggestedWords&quot;: [],
+    &quot;contents&quot;: [
+      {
+        &quot;textExtra&quot;: [
+          {
+            &quot;hashtagName&quot;: &quot;animals&quot;
+          },
+          {
+            &quot;hashtagName&quot;: &quot;science&quot;
+          },
+          {
+            &quot;hashtagName&quot;: &quot;learnontiktok&quot;
+          }
+        ]
+      }
+    ]
+  }
+]
+</code></pre>
+</details>
+<p>The above TikTok scraping code has successfully extracted the video data from its page. However, <strong>the comments are missing!</strong> Let's scrape it in the following section!</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h3 id="how-to-scrape-tiktok-comments">How To Scrape TikTok Comments?</h3>
+<p>The comment data on a post aren't found on hidden parts of the HTML. Instead, it's loaded dynamically through hidden APIs, which get activated through scroll actions.</p>
+<p>Since the comments on a post can exceed thousands, scraping them through scrolling isn't a practical approach. Therefore, we'll scrape them using the hidden comments API itself.</p>
+<figure class="kg-card kg-bookmark-card kg-card-hascaption shortcode-ref">
+<a class="kg-bookmark-container" href="https://scrapfly.io/blog/how-to-scrape-hidden-apis/">
+<div class="kg-bookmark-content">
+<div class="kg-bookmark-title">How to Scrape Hidden APIs</div>
+<div class="kg-bookmark-description">
+<p>Learn how to find hidden APIs, how to scrape them, and what are some common challenges faced when developing web scrapers for hidden APIs.</p>
+</div>
+</div>
+<div class="kg-bookmark-thumbnail">
+<img src="https://scrapfly.io/blog/content/images/how-to-scrape-hidden-apis_banner_light.svg" alt="How to Scrape Hidden APIs" width="284" height="149">
+</div>
+</a>
+</figure>
+<p>To locate the comments hidden API, follow the below steps:</p>
+<ul>
+<li>Open the browser developer tools and select the <code>network</code> tab.</li>
+<li>Go to any video page on TikTok.</li>
+<li>Load more comments by scrolling down.</li>
+</ul>
+<p>After following the above steps, you will find the API calls used for loading more comments logged:</p>
+<figure class="kg-card kg-image-card kg-card-hascaption shortcode-img">
+            <img class="kg-image medium-zoom-image" loading="lazy" src="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_hidden-comments-API.webp" alt="API response on browser developer tools" title="" width="700" height="341" srcset="https://scrapfly.io/blog/content/images/size/w300/how-to-scrape-tiktok-python-json_hidden-comments-API.webp 300w,
+https://scrapfly.io/blog/content/images/size/w600/how-to-scrape-tiktok-python-json_hidden-comments-API.webp 600w,
+https://scrapfly.io/blog/content/images/size/w1000/how-to-scrape-tiktok-python-json_hidden-comments-API.webp 1000w,
+https://scrapfly.io/blog/content/images/size/w1300/how-to-scrape-tiktok-python-json_hidden-comments-API.webp 1300w,
+https://scrapfly.io/blog/content/images/size/w2000/how-to-scrape-tiktok-python-json_hidden-comments-API.webp 2000w,"><figcaption>Hidden comments API</figcaption>
+            </figure>
+<p>The API request was sent to the endpoint <code>https://www.tiktok.com/api/comment/list/</code> with many different API parameters. However, a few of them are required:</p>
+<pre><code class="language-python">{
+    &quot;aweme_id&quot;: 7198206283571285294, # the post ID
+    &quot;count&quot;: 20, # number of comments to retrieve in each API call
+    &quot;cursor&quot;: 0 # the index to start retrieving from
+}
+</code></pre>
+<p>We'll request the comments API endpoint to the comment data directly in JSON and use the <code>cursor</code> parameter to crawl over comment pages:</p>
+<div class="tabs">
+<div data-tab class="active">Python</div>
+<div data-tab>ScrapFly</div>
+<div class="active">
+<pre><code class="language-python">import jmespath
+import asyncio
+import json
+from urllib.parse import urlencode
+from typing import List, Dict
+from httpx import AsyncClient, Response
+from loguru import logger as log
+
+# initialize an async httpx client
+client = AsyncClient(
+    # enable http2
+    http2=True,
+    # add basic browser like headers to prevent being blocked
+    headers={
+        &quot;Accept-Language&quot;: &quot;en-US,en;q=0.9&quot;,
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;,
+        &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;,
+        &quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,
+        &quot;content-type&quot;: &quot;application/json&quot;
+    },
+)
+
+def parse_comments(response: Response) -&gt; List[Dict]:
+    &quot;&quot;&quot;parse comments data from the API response&quot;&quot;&quot;
+    data = json.loads(response.text)
+    comments_data = data[&quot;comments&quot;]
+    total_comments = data[&quot;total&quot;]
+    parsed_comments = []
+    # refine the comments with JMESPath
+    for comment in comments_data:
+        result = jmespath.search(
+            &quot;&quot;&quot;{
+            text: text,
+            comment_language: comment_language,
+            digg_count: digg_count,
+            reply_comment_total: reply_comment_total,
+            author_pin: author_pin,
+            create_time: create_time,
+            cid: cid,
+            nickname: user.nickname,
+            unique_id: user.unique_id,
+            aweme_id: aweme_id
+            }&quot;&quot;&quot;,
+            comment
+        )
+        parsed_comments.append(result)
+    return {&quot;comments&quot;: parsed_comments, &quot;total_comments&quot;: total_comments}
+
+
+async def scrape_comments(post_id: int, comments_count: int = 20, max_comments: int = None) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape comments from tiktok posts using hidden APIs&quot;&quot;&quot;
+    
+    def form_api_url(cursor: int):
+        &quot;&quot;&quot;form the reviews API URL and its pagination values&quot;&quot;&quot;
+        base_url = &quot;https://www.tiktok.com/api/comment/list/?&quot;
+        params = {
+            &quot;aweme_id&quot;: post_id,
+            'count': comments_count,
+            'cursor': cursor # the index to start from      
+        }
+        return base_url + urlencode(params)
+    
+    log.info(&quot;scraping the first comments batch&quot;)
+    first_page = await client.get(form_api_url(0))
+    data = parse_comments(first_page)
+    comments_data = data[&quot;comments&quot;]
+    total_comments = data[&quot;total_comments&quot;]
+
+    # get the maximum number of comments to scrape
+    if max_comments and max_comments &lt; total_comments:
+        total_comments = max_comments
+
+    # scrape the remaining comments concurrently
+    log.info(f&quot;scraping comments pagination, remaining {total_comments // comments_count - 1} more pages&quot;)
+    _other_pages = [
+        client.get(form_api_url(cursor=cursor))
+        for cursor in range(comments_count, total_comments + comments_count, comments_count)
+    ]
+    for response in asyncio.as_completed(_other_pages):
+        response = await response
+        data = parse_comments(response)[&quot;comments&quot;]
+        comments_data.extend(data)
+
+    log.success(f&quot;scraped {len(comments_data)} from the comments API from the post with the ID {post_id}&quot;)
+    return comments_data
+</code></pre>
+</div>
+<div>
+<pre><code class="language-python">import jmespath
+import asyncio
+import json
+from urllib.parse import urlencode
+from typing import Dict, List
+from loguru import logger as log
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+
+SCRAPFLY = ScrapflyClient(key=&quot;Your ScrapFly API key&quot;)
+
+def parse_comments(response: ScrapeApiResponse) -&gt; List[Dict]:
+    &quot;&quot;&quot;parse comments data from the API response&quot;&quot;&quot;
+    data = json.loads(response.scrape_result[&quot;content&quot;])
+    comments_data = data[&quot;comments&quot;]
+    total_comments = data[&quot;total&quot;]
+    parsed_comments = []
+    # refine the comments with JMESPath
+    for comment in comments_data:
+        result = jmespath.search(
+            &quot;&quot;&quot;{
+            text: text,
+            comment_language: comment_language,
+            digg_count: digg_count,
+            reply_comment_total: reply_comment_total,
+            author_pin: author_pin,
+            create_time: create_time,
+            cid: cid,
+            nickname: user.nickname,
+            unique_id: user.unique_id,
+            aweme_id: aweme_id
+            }&quot;&quot;&quot;,
+            comment
+        )
+        parsed_comments.append(result)
+    return {&quot;comments&quot;: parsed_comments, &quot;total_comments&quot;: total_comments}
+
+
+async def scrape_comments(post_id: int, comments_count: int = 20, max_comments: int = None) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape comments from tiktok posts using hidden APIs&quot;&quot;&quot;
+    
+    def form_api_url(cursor: int):
+        &quot;&quot;&quot;form the reviews API URL and its pagination values&quot;&quot;&quot;
+        base_url = &quot;https://www.tiktok.com/api/comment/list/?&quot;
+        params = {
+            &quot;aweme_id&quot;: post_id,
+            'count': comments_count,
+            'cursor': cursor # the index to start from      
+        }
+        return base_url + urlencode(params)
+    
+    log.info(&quot;scraping the first comments batch&quot;)
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(
+        form_api_url(cursor=0), country=&quot;US&quot;, asp=True, headers={
+            &quot;content-type&quot;: &quot;application/json&quot;
+        }
+    ))
+    data = parse_comments(first_page)
+    comments_data = data[&quot;comments&quot;]
+    total_comments = data[&quot;total_comments&quot;]
+
+    # get the maximum number of comments to scrape
+    if max_comments and max_comments &lt; total_comments:
+        total_comments = max_comments
+
+    # scrape the remaining comments concurrently
+    log.info(f&quot;scraping comments pagination, remaining {total_comments // comments_count - 1} more pages&quot;)
+    _other_pages = [
+        ScrapeConfig(form_api_url(cursor=cursor), country=&quot;US&quot;, asp=True, headers={&quot;content-type&quot;: &quot;application/json&quot;})
+        for cursor in range(comments_count, total_comments + comments_count, comments_count)
+    ]
+    async for response in SCRAPFLY.concurrent_scrape(_other_pages):
+        data = parse_comments(response)[&quot;comments&quot;]
+        comments_data.extend(data)
+
+    log.success(f&quot;scraped {len(comments_data)} from the comments API from the post with the ID {post_id}&quot;)
+    return comments_data
+</code></pre>
+</div>
+</div>
+<details class="is-code"><summary>Run the code</summary>
+<pre><code class="language-python">async def run():
+    comment_data = await scrape_comments(
+        # the post/video id, such as: https://www.tiktok.com/@oddanimalspecimens/video/7198206283571285294
+        post_id=7198206283571285294,
+        # total comments to scrape, omitting it will scrape all the avilable comments
+        max_comments=100,
+        # default is 20, it can be overriden to scrape more comments in each call but it can't be &gt; the total comments on the post
+        comments_count=20
+    )
+    # save the result to a JSON file
+    with open(&quot;comment_data.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+        json.dump(comment_data, file, indent=2, ensure_ascii=False)
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(run())
+</code></pre>
+</details>
+<p>The above code scrapes TikTok comments data using two main functions:</p>
+<ul>
+<li><code>scrape_comments</code>: To create the comments API URL with the desired offset and request it to get the comment data in JSON.</li>
+<li><code>parse_comments</code>: This is used to parse the comments API responses and extract the useful data using JMESPath.</li>
+</ul>
+<p>Here is a sample output of the comment data we got:</p>
+<details class="is-code"><summary>Sample output</summary>
+<pre><code class="language-json">[
+  {
+    &quot;text&quot;: &quot;Dude give ‘em back&quot;,
+    &quot;comment_language&quot;: &quot;en&quot;,
+    &quot;digg_count&quot;: 72009,
+    &quot;reply_comment_total&quot;: 131,
+    &quot;author_pin&quot;: false,
+    &quot;create_time&quot;: 1675963633,
+    &quot;cid&quot;: &quot;7198208855277060910&quot;,
+    &quot;nickname&quot;: &quot;GrandMoffJames&quot;,
+    &quot;unique_id&quot;: &quot;grandmoffjames&quot;,
+    &quot;aweme_id&quot;: &quot;7198206283571285294&quot;
+  },
+  {
+    &quot;text&quot;: &quot;Dudes got everyone’s back&quot;,
+    &quot;comment_language&quot;: &quot;en&quot;,
+    &quot;digg_count&quot;: 36982,
+    &quot;reply_comment_total&quot;: 100,
+    &quot;author_pin&quot;: false,
+    &quot;create_time&quot;: 1675966520,
+    &quot;cid&quot;: &quot;7198221275168719662&quot;,
+    &quot;nickname&quot;: &quot;Scott&quot;,
+    &quot;unique_id&quot;: &quot;troutfishmanjr&quot;,
+    &quot;aweme_id&quot;: &quot;7198206283571285294&quot;
+  },
+  {
+    &quot;text&quot;: &quot;do human backbone&quot;,
+    &quot;comment_language&quot;: &quot;en&quot;,
+    &quot;digg_count&quot;: 18286,
+    &quot;reply_comment_total&quot;: 99,
+    &quot;author_pin&quot;: false,
+    &quot;create_time&quot;: 1676553505,
+    &quot;cid&quot;: &quot;7200742421726216987&quot;,
+    &quot;nickname&quot;: &quot;www&quot;,
+    &quot;unique_id&quot;: &quot;ksjekwjkdbw&quot;,
+    &quot;aweme_id&quot;: &quot;7198206283571285294&quot;
+  },
+  {
+    &quot;text&quot;: &quot;casually has a backbone in his inventory&quot;,
+    &quot;comment_language&quot;: &quot;en&quot;,
+    &quot;digg_count&quot;: 20627,
+    &quot;reply_comment_total&quot;: 9,
+    &quot;author_pin&quot;: false,
+    &quot;create_time&quot;: 1676106562,
+    &quot;cid&quot;: &quot;7198822535374734126&quot;,
+    &quot;nickname&quot;: &quot;*&quot;,
+    &quot;unique_id&quot;: &quot;angelonextdoor&quot;,
+    &quot;aweme_id&quot;: &quot;7198206283571285294&quot;
+  },
+  {
+    &quot;text&quot;: &quot;😧&quot;,
+    &quot;comment_language&quot;: &quot;&quot;,
+    &quot;digg_count&quot;: 7274,
+    &quot;reply_comment_total&quot;: 20,
+    &quot;author_pin&quot;: false,
+    &quot;create_time&quot;: 1675963217,
+    &quot;cid&quot;: &quot;7198207091995132698&quot;,
+    &quot;nickname&quot;: &quot;Son Bi’&quot;,
+    &quot;unique_id&quot;: &quot;son_bisss&quot;,
+    &quot;aweme_id&quot;: &quot;7198206283571285294&quot;
+  },
+  ....
+]
+</code></pre>
+</details>
+<p>The above TikTok scraper code can scrape tens of comments in mere seconds. That's because utilizing the TikTok hidden APIs for web scraping is much faster than parsing data from HTML.</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="how-to-scrape-tiktok-search">How To Scrape TikTok Search?</h2>
+<p>In this section, we'll proceed with the last piece of our TikTok web scraping code: search pages. The search data are loaded through a hidden API, which we'll utilize for web scraping. Alternatively, <strong>data on search pages can be scraped from background XHR calls</strong>, similar to how we scraped the channel data.</p>
+<p>To capture the search API, follow the below steps:</p>
+<ul>
+<li>Open the <code>network</code> tab of the browser developer tools.</li>
+<li>Use the search box to search for any keyword.</li>
+<li>Scroll down to load more search results.</li>
+</ul>
+<p>After following the above steps, you will find the search API requests logged:</p>
+<figure class="kg-card kg-image-card kg-card-hascaption shortcode-img">
+            <img class="kg-image medium-zoom-image" loading="lazy" src="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_hidden-search-API.webp" alt="scrapfly middleware" title="" width="700" height="341" srcset="https://scrapfly.io/blog/content/images/size/w300/how-to-scrape-tiktok-python-json_hidden-search-API.webp 300w,
+https://scrapfly.io/blog/content/images/size/w600/how-to-scrape-tiktok-python-json_hidden-search-API.webp 600w,
+https://scrapfly.io/blog/content/images/size/w1000/how-to-scrape-tiktok-python-json_hidden-search-API.webp 1000w,
+https://scrapfly.io/blog/content/images/size/w1300/how-to-scrape-tiktok-python-json_hidden-search-API.webp 1300w,
+https://scrapfly.io/blog/content/images/size/w2000/how-to-scrape-tiktok-python-json_hidden-search-API.webp 2000w,"><figcaption>Hidden search API</figcaption>
+            </figure>
+<p>The above API request was sent to the following endpoint with these parameters:</p>
+<pre><code class="language-python">search_api_url = &quot;https://www.tiktok.com/api/search/general/full/?&quot;
+parameters = {
+    &quot;keyword&quot;: &quot;whales&quot;, # the keyword of the search query
+    &quot;offset&quot;: cursor, # the index to start from
+    &quot;search_id&quot;: &quot;2024022710453229C796B3BF936930E248&quot; # timestamp with random ID
+}
+</code></pre>
+<p>The above parameters are essential for the search query. However, this endpoint requires certain <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/how-to-handle-cookies-in-web-scraping/">cookie</a> values to authorize the requests, which can be challenging to maintain. Therefore, we'll utilize the <a href="https://scrapfly.io/docs/scrape-api/session" target="_blank" rel="noopener noreferrer" class="shortcode-url">ScrapFly sessions feature</a> to obtain a cookie and reuse it with the search API requests:</p>
+<pre><code class="language-python">import datetime
+import secrets
+import asyncio
+import json
+import jmespath
+from typing import Dict, List
+from urllib.parse import urlencode, quote
+from loguru import logger as log
+from scrapfly import ScrapeConfig, ScrapflyClient, ScrapeApiResponse
+
+SCRAPFLY = ScrapflyClient(key=&quot;Your Scrapfly API key key&quot;)
+
+def parse_search(response: ScrapeApiResponse) -&gt; List[Dict]:
+    &quot;&quot;&quot;parse search data from the API response&quot;&quot;&quot;
+    data = json.loads(response.scrape_result[&quot;content&quot;])
+    search_data = data[&quot;data&quot;]
+    parsed_search = []
+    for item in search_data:
+        if item[&quot;type&quot;] == 1: # get the item if it was item only
+            result = jmespath.search(
+                &quot;&quot;&quot;{
+                id: id,
+                desc: desc,
+                createTime: createTime,
+                video: video,
+                author: author,
+                stats: stats,
+                authorStats: authorStats
+                }&quot;&quot;&quot;,
+                item[&quot;item&quot;]
+            )
+            result[&quot;type&quot;] = item[&quot;type&quot;]
+            parsed_search.append(result)
+
+    # wheter there is more search results: 0 or 1. There is no max searches available
+    has_more = data[&quot;has_more&quot;]
+    return parsed_search
+
+
+async def obtain_session(url: str) -&gt; str:
+    &quot;&quot;&quot;create a session to save the cookies and authorize the search API&quot;&quot;&quot;
+    session_id=&quot;tiktok_search_session&quot;
+    await SCRAPFLY.async_scrape(ScrapeConfig(
+        url, asp=True, country=&quot;US&quot;, render_js=True, session=session_id
+    ))
+    return session_id
+
+
+async def scrape_search(keyword: str, max_search: int, search_count: int = 12) -&gt; List[Dict]:
+    &quot;&quot;&quot;scrape tiktok search data from the search API&quot;&quot;&quot;
+
+    def generate_search_id():
+        # get the current datetime and format it as YYYYMMDDHHMMSS
+        timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        # calculate the length of the random hex required for the total length (32)
+        random_hex_length = (32 - len(timestamp)) // 2  # calculate bytes needed
+        random_hex = secrets.token_hex(random_hex_length).upper()
+        random_id = timestamp + random_hex
+        return random_id
+
+    def form_api_url(cursor: int):
+        &quot;&quot;&quot;form the reviews API URL and its pagination values&quot;&quot;&quot;
+        base_url = &quot;https://www.tiktok.com/api/search/general/full/?&quot;
+        params = {
+            &quot;keyword&quot;: quote(keyword),
+            &quot;offset&quot;: cursor, # the index to start from
+            &quot;search_id&quot;: generate_search_id()
+        }
+        return base_url + urlencode(params)
+
+    log.info(&quot;obtaining a session for the search API&quot;)
+    session_id = await obtain_session(url=&quot;https://www.tiktok.com/search?q=&quot; + quote(keyword))
+
+    log.info(&quot;scraping the first search batch&quot;)
+    first_page = await SCRAPFLY.async_scrape(ScrapeConfig(
+        form_api_url(cursor=0), asp=True, country=&quot;US&quot;, session=session_id
+    ))
+    search_data = parse_search(first_page)
+
+    # scrape the remaining comments concurrently
+    log.info(f&quot;scraping search pagination, remaining {max_search // search_count} more pages&quot;)
+    _other_pages = [
+        ScrapeConfig(form_api_url(cursor=cursor), asp=True, country=&quot;US&quot;, session=session_id
+    )
+        for cursor in range(search_count, max_search + search_count, search_count)
+    ]
+    async for response in SCRAPFLY.concurrent_scrape(_other_pages):
+        data = parse_search(response)
+        search_data.extend(data)
+
+    log.success(f&quot;scraped {len(search_data)} from the search API from the keyword {keyword}&quot;)
+    return search_data
+</code></pre>
+<details class="is-code"><summary>Run the code</summary>
+<pre><code class="language-python">async def run():
+    search_data = await scrape_search(
+        keyword=&quot;whales&quot;,
+        max_search=18
+    )
+    # save the result to a JSON file
+    with open(&quot;search_data.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as file:
+        json.dump(search_data, file, indent=2, ensure_ascii=False)
+
+
+if __name__ == &quot;__main__&quot;:
+    asyncio.run(run())
+</code></pre>
+</details>
+<p>Let's break down the execution flow of the above TikTok scraping code:</p>
+<ul>
+<li>A request is sent to the regular search page to obtain the cookie values through the <code>obtain_session</code> function.</li>
+<li>A random search ID is created using the <code>generate_search_id</code> to use it with the requests sent to the search API.</li>
+<li>The first search API URL is created with the <code>form_api_url</code> function.</li>
+<li>A request is sent to the search API with the session key containing the cookies.</li>
+<li>The JSON response of the search API is parsed using the <code>parse_search</code>. It also filters the response data to only include the video data.</li>
+</ul>
+<div class="kg-card kg-callout-card kg-callout-card-blue shortcode-info"><div class="kg-callout-text">
+<p>🙋‍ The above code requests the <code>/search/general/full/</code> endpoint, which retrieves search results for both profile and video data. This endpoint is limited to a low cursor value. To effectiely manage its pagination, you can use filters to narrow down the results.</p>
+</div></div>
+<p>Here is a sample output of results we got:</p>
+<details class="is-code"><summary>Sample output</summary>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;7192262480066825515&quot;,
+    &quot;desc&quot;: &quot;Replying to @julsss1324 their songs are described as hauntingly beautiful. Do you find them scary or beautiful? For me it’s peaceful. They remind me of elephants. 🐋🎶💙 @kaimanaoceansafari #whalesounds #whalesong #hawaii #ocean #deepwater #deepsea #thalassophobia #whales #humpbackwhales &quot;,
+    &quot;createTime&quot;: 1674579130,
+    &quot;video&quot;: {
+      &quot;id&quot;: &quot;7192262480066825515&quot;,
+      &quot;height&quot;: 1024,
+      &quot;width&quot;: 576,
+      &quot;duration&quot;: 25,
+      &quot;ratio&quot;: &quot;540p&quot;,
+      &quot;cover&quot;: &quot;https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/e438558728954c74a761132383865d97_1674579131~tplv-dmt-logom:tos-useast5-i-0068-tx/0bb4cf51c9f445c9a46dc8d5aab20545.image?x-expires=1709215200&amp;x-signature=Xl1W9ELtZ5%2FP4oTEpjqOYsGQcx8%3D&quot;,
+      &quot;originCover&quot;: &quot;https://p19-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/2061429a4535477686769d5f2faeb4f0_1674579131?x-expires=1709215200&amp;x-signature=OJW%2BJnqnYt4L2G2pCryrfh52URI%3D&quot;,
+      &quot;dynamicCover&quot;: &quot;https://p19-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/88b455ffcbc6421999f47ebeb31b962b_1674579131?x-expires=1709215200&amp;x-signature=hDBbwIe0Z8HRVFxLe%2F2JZoeHopU%3D&quot;,
+      &quot;playAddr&quot;: &quot;https://v16-webapp-prime.us.tiktok.com/video/tos/useast5/tos-useast5-pve-0068-tx/809fca40201048c78299afef3b627627/?a=1988&amp;ch=0&amp;cr=3&amp;dr=0&amp;lr=unwatermarked&amp;cd=0%7C0%7C0%7C&amp;cv=1&amp;br=3412&amp;bt=1706&amp;bti=NDU3ZjAwOg%3D%3D&amp;cs=0&amp;ds=6&amp;ft=4KJMyMzm8Zmo0apOi94jV94rdpWrKsd.&amp;mime_type=video_mp4&amp;qs=0&amp;rc=NDU3PDc0PDw7ZGg7ODg0O0BpM2xycGk6ZnYzaTMzZzczNEBgNl4tLjFiNjMxNTVgYjReYSNucGwzcjQwajVgLS1kMS9zcw%3D%3D&amp;btag=e00088000&amp;expire=1709216449&amp;l=202402271420230081AD419FAC9913AB63&amp;ply_type=2&amp;policy=2&amp;signature=1d44696fa49eb5fa609f6b6871445f77&amp;tk=tt_chain_token&quot;,
+      &quot;downloadAddr&quot;: &quot;https://v16-webapp-prime.us.tiktok.com/video/tos/useast5/tos-useast5-pve-0068-tx/c7196f98798e4520834a64666d253cb6/?a=1988&amp;ch=0&amp;cr=3&amp;dr=0&amp;lr=tiktok_m&amp;cd=0%7C0%7C1%7C&amp;cv=1&amp;br=3514&amp;bt=1757&amp;bti=NDU3ZjAwOg%3D%3D&amp;cs=0&amp;ds=3&amp;ft=4KJMyMzm8Zmo0apOi94jV94rdpWrKsd.&amp;mime_type=video_mp4&amp;qs=0&amp;rc=ZTw5Njg0NDo3Njo7PGllOkBpM2xycGk6ZnYzaTMzZzczNEBhYjFiLjA1NmAxMS8uMDIuYSNucGwzcjQwajVgLS1kMS9zcw%3D%3D&amp;btag=e00088000&amp;expire=1709216449&amp;l=202402271420230081AD419FAC9913AB63&amp;ply_type=2&amp;policy=2&amp;signature=1443d976720e418204704f43af4ff0f5&amp;tk=tt_chain_token&quot;,
+      &quot;shareCover&quot;: [
+        &quot;&quot;,
+        &quot;https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/2061429a4535477686769d5f2faeb4f0_1674579131~tplv-photomode-tiktok-play.jpeg?x-expires=1709647200&amp;x-signature=%2B4dufwEEFxPJU0NX4K4Mm%2FPET6E%3D&quot;,
+        &quot;https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/2061429a4535477686769d5f2faeb4f0_1674579131~tplv-photomode-share-play.jpeg?x-expires=1709647200&amp;x-signature=XCorhFJUTCahS8crANfC%2BDSrTbU%3D&quot;
+      ],
+      &quot;reflowCover&quot;: &quot;https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/e438558728954c74a761132383865d97_1674579131~tplv-photomode-video-cover:480:480.jpeg?x-expires=1709215200&amp;x-signature=%2BFN9Vq7TxNLLCtJCsMxZIrgjMis%3D&quot;,
+      &quot;bitrate&quot;: 1747435,
+      &quot;encodedType&quot;: &quot;normal&quot;,
+      &quot;format&quot;: &quot;mp4&quot;,
+      &quot;videoQuality&quot;: &quot;normal&quot;,
+      &quot;encodeUserTag&quot;: &quot;&quot;
+    },
+    &quot;author&quot;: {
+      &quot;id&quot;: &quot;6763395919847523333&quot;,
+      &quot;uniqueId&quot;: &quot;mermaid.kayleigh&quot;,
+      &quot;nickname&quot;: &quot;mermaid.kayleigh&quot;,
+      &quot;avatarThumb&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7310953622576037894~c5_100x100.jpeg?lk3s=a5d48078&amp;x-expires=1709215200&amp;x-signature=0tw66iTdRDhPA4pTHM8e4gjIsNo%3D&quot;,
+      &quot;avatarMedium&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7310953622576037894~c5_720x720.jpeg?lk3s=a5d48078&amp;x-expires=1709215200&amp;x-signature=IkaoB24EJoHdsHCinXmaazAWDYo%3D&quot;,
+      &quot;avatarLarger&quot;: &quot;https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7310953622576037894~c5_1080x1080.jpeg?lk3s=a5d48078&amp;x-expires=1709215200&amp;x-signature=38KCawETqF%2FdyMX%2FAZg32edHnc4%3D&quot;,
+      &quot;signature&quot;: &quot;Love the ocean with me 💙\nOwner @KaimanaOceanSafari 🤿\nCome dive with me👇🏼&quot;,
+      &quot;verified&quot;: true,
+      &quot;secUid&quot;: &quot;MS4wLjABAAAAhIICwHiwEKwUg07akDeU_cnM0uE1LAGO-kEQdw3AZ_Rd-zcb-qOR0-1SeZ5D2Che&quot;,
+      &quot;secret&quot;: false,
+      &quot;ftc&quot;: false,
+      &quot;relation&quot;: 0,
+      &quot;openFavorite&quot;: false,
+      &quot;commentSetting&quot;: 0,
+      &quot;duetSetting&quot;: 0,
+      &quot;stitchSetting&quot;: 0,
+      &quot;privateAccount&quot;: false,
+      &quot;downloadSetting&quot;: 0
+    },
+    &quot;stats&quot;: {
+      &quot;diggCount&quot;: 10000000,
+      &quot;shareCount&quot;: 390800,
+      &quot;commentCount&quot;: 72100,
+      &quot;playCount&quot;: 89100000,
+      &quot;collectCount&quot;: 663400
+    },
+    &quot;authorStats&quot;: {
+      &quot;followingCount&quot;: 313,
+      &quot;followerCount&quot;: 2000000,
+      &quot;heartCount&quot;: 105400000,
+      &quot;videoCount&quot;: 1283,
+      &quot;diggCount&quot;: 40800,
+      &quot;heart&quot;: 105400000
+    },
+    &quot;type&quot;: 1
+  },
+  ....
+]
+</code></pre>
+</details>
+<p>With this last feature, our TikTok scraper is complete. It can scrape profiles, channels, posts, comments and search data!</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="bypass-tiktok-scraping-blocking-with-scrapfly">Bypass TikTok Scraping Blocking With ScrapFly</h2>
+<p>We can successfully scrape TikTok data from various pages. However, scaling our scraping rate will lead TikTok to <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/how-to-avoid-web-scraping-blocking-ip-addresses/">block the IP address</a> used. Moreover, it can challenge the requests with <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/how-to-bypass-captcha-while-web-scraping-in-2024/">CAPTCHAs</a> if the traffic is suspected:</p>
+<figure class="kg-card kg-image-card kg-card-hascaption shortcode-img">
+            <img class="kg-image medium-zoom-image" loading="lazy" src="https://scrapfly.io/blog/content/images/how-to-scrape-tiktok-python-json_tiktok-captchas.webp" alt="captcha on tiktok" title="" width="500" height="141" srcset="https://scrapfly.io/blog/content/images/size/w300/how-to-scrape-tiktok-python-json_tiktok-captchas.webp 300w,
+https://scrapfly.io/blog/content/images/size/w600/how-to-scrape-tiktok-python-json_tiktok-captchas.webp 600w,
+https://scrapfly.io/blog/content/images/size/w1000/how-to-scrape-tiktok-python-json_tiktok-captchas.webp 1000w,
+https://scrapfly.io/blog/content/images/size/w1300/how-to-scrape-tiktok-python-json_tiktok-captchas.webp 1300w,
+https://scrapfly.io/blog/content/images/size/w2000/how-to-scrape-tiktok-python-json_tiktok-captchas.webp 2000w,"><figcaption>TikTok sraping blocking</figcaption>
+            </figure>
+<p>This is where Scrapfly can lend a hand and help resolve Tiktok scraper blocking.</p>
+<figure class="kg-card kg-image-card kg-card-hascaption shortcode-img">
+<img class="kg-image medium-zoom-image" loading="lazy" src="https://scrapfly.io/blog/content/images/common_scrapfly-api.svg" alt="scrapfly middleware" title="" width="700" height="341">
+</figure>
+<div class="scrapfly-pitch shortcode-pitch">
+<p>
+ScrapFly provides <a href="https://scrapfly.io/docs/scrape-api/getting-started" target="_blank">web scraping</a>, <a href="https://scrapfly.io/docs/screenshot-api/getting-started" target="_blank">screenshot</a>, and <a href="https://scrapfly.io/docs/extraction-api/getting-started" target="_blank">extraction</a> APIs for data collection at scale.
+</p>
+<ul>
+<li><a href="https://scrapfly.io/docs/scrape-api/anti-scraping-protection" target="_blank">Anti-bot protection bypass</a> - scrape web pages without blocking!</li>    
+<li><a href="https://scrapfly.io/docs/scrape-api/proxy" target="_blank">Rotating residential proxies</a> - prevent IP address and geographic blocks.</li>    
+<li><a href="https://scrapfly.io/docs/scrape-api/javascript-rendering" target="_blank">JavaScript rendering</a> - scrape dynamic web pages through cloud browsers.</li>
+<li><a href="https://scrapfly.io/docs/scrape-api/javascript-scenario" target="_blank">Full browser automation</a> - control browsers to scroll, input and click on objects.</li>
+<li><a href="https://scrapfly.io/docs/scrape-api/getting-started#api_param_format" target="_blank">Format conversion</a> - scrape as HTML, JSON, Text, or Markdown.</li>
+<li><a href="https://scrapfly.io/docs/sdk/python" target="_blank">Python</a> and 
+<a href="https://scrapfly.io/docs/sdk/typescript" target="_blank">Typescript</a> SDKs, as well as 
+<a href="https://scrapfly.io/docs/sdk/scrapy" target="_blank">Scrapy</a> and 
+<a href="https://scrapfly.io/docs/integration/getting-started" target="_blank">no-code tool integrations</a>.
+</li>
+</ul>
+</div>
+<p>For example, this is how we can avoid TikTok web scraping blocking using ScrapFly. All we have to do is replace the HTTP client with the ScrapFly client and enable the <code>asp</code> parameter:</p>
+<pre><code class="language-python"># standard web scraping code
+import httpx
+from parsel import Selector
+
+response = httpx.get(&quot;some tiktok.com URL&quot;)
+selector = Selector(response.text)
+
+# in ScrapFly becomes this 👇
+from scrapfly import ScrapeConfig, ScrapflyClient
+
+# replaces your HTTP client (httpx in this case)
+scrapfly = ScrapflyClient(key=&quot;Your ScrapFly API key&quot;)
+
+response = scrapfly.scrape(ScrapeConfig(
+    url=&quot;website URL&quot;,
+    asp=True, # enable the anti scraping protection to bypass blocking
+    country=&quot;US&quot;, # set the proxy location to a specfic country
+    render_js=True # enable rendering JavaScript (like headless browsers) to scrape dynamic content if needed
+))
+
+# use the built in Parsel selector
+selector = response.selector
+# access the HTML content
+html = response.scrape_result['content']
+</code></pre>
+<div class="ctas container shortcode-cta">
+  <div class="row">
+  <div class="col-md-6 pb-1">
+    <a class="cta plausible-event-name=register plausible-event-source=cta" href="https://scrapfly.io/register">Try for FREE!</a>
+  </div>
+  <div class="col-md-6 pb-1">
+    <a class="cta light plausible-event-name=explore plausible-event-interest=docs" href="https://scrapfly.io/docs">More on Scrapfly</a>
+  </div>
+  </div>
+</div><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="faq">FAQ</h2>
+<p>To wrap up this guide, let's have a look at some frequently asked questions about web scraping TikTok.</p>
+<h4 id="is-there-a-public-api-for-tiktok">Is there a public API for TikTok?</h4>
+<p>Yes, <a href="https://developers.tiktok.com/" target="_blank" rel="noopener noreferrer nofollow" class="shortcode-url">TikTok offers public APIs</a> APIs for developers, researchers and communities. These APIs allow access to the public TikTok data found in profiles, videos, and comments, as well as data insights on the commercial ads.</p>
+<h4 id="can-i-scrape-tiktok-for-sentiment-analysis">Can I scrape TikTok for sentiment analysis?</h4>
+<p>Yes, TikTok includes opinionated text data found in comments. These comment data can be classified into positive, negative or neutral sentences. TikTok sentiment analysis allows for capturing relations and opinions on a given subject. We have covered using <a class="text-reference shortcode-tref" href="https://scrapfly.io/blog/intro-to-using-web-scraping-for-sentiment-analysis/">web scraping for sentiment analysis</a> in a previous article.</p>
+<a class="github" target="_blank" href="https://github.com/scrapfly/scrapfly-scrapers/tree/main/tiktok-scraper">
+    <div class="title">Latest TikTok Scraper Code</div>
+    <div class="subtitle">https://github.com/scrapfly/scrapfly-scrapers/</div>
+</a><!--kg-card-end: markdown--><!--kg-card-begin: markdown--><h2 id="web-scraping-tiktok-summary">Web Scraping TikTok Summary</h2>
+<p>In this guide, we have explained how to scrape TikTok through a step-by-step guide. We have created a TikTok scraper that scrapes different data types:</p>
+<ul>
+<li>Profile and channel data.</li>
+<li>Video and comment data in post pages.</li>
+<li>Video search results from search pages.</li>
+</ul>
+<p>We have used some web scraping tricks to scrape TikTok without writing selectors by extracting the data from hidden JavaScript tags and hidden APIs. We have also used ScrapFly to avoid TikTok scraper blocking.</p>
+<!--kg-card-end: markdown--><!--kg-card-begin: html--><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a public API for TikTok?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Yes, <a href=\"https://developers.tiktok.com/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"shortcode-url\">TikTok offers public APIs</a> APIs for developers, researchers and communities. These APIs allow access to the public TikTok data found in profiles, videos, and comments, as well as data insights on the commercial ads.</p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I scrape TikTok for sentiment analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<p>Yes, TikTok includes opinionated text data found in comments. These comment data can be classified into positive, negative or neutral sentences. TikTok sentiment analysis allows for capturing relations and opinions on a given subject. We have covered using <a class=\"text-reference shortcode-tref\" href=\"https://scrapfly.io/blog/intro-to-using-web-scraping-for-sentiment-analysis/\">web scraping for sentiment analysis</a> in a previous article.</p><a class=\"github\" target=\"_blank\" href=\"https://github.com/scrapfly/scrapfly-scrapers/tree/main/tiktok-scraper\">\n    <div class=\"title\">Latest TikTok Scraper Code</div>\n    <div class=\"subtitle\">https://github.com/scrapfly/scrapfly-scrapers/</div>\n</a>"
+      }
+    }
+  ]
+}
+</script><!--kg-card-end: html-->
+            </div>
+            <div class="ctas container"><div class="row">
+<div class="col-md-6">
+    <a class="cta light plausible-event-name=explore plausible-event-interest=docs"
+        href="https://scrapfly.io/docs/sdk/python">Check out ScrapFly Python SDK</a>
+</div>
+<div class="col-md-6"><a class="cta plausible-event-name=register plausible-event-source=cta" href="https://scrapfly.io/register">Try ScrapFly for FREE!</a></div>
+</div>
+</div>            <div class="post-content-footer">
+                <div id="related-questions">
+                        <div class="related-page-wrapper">
+        <h5>Related Questions</h5>
+        <div><ul>
+            <li><a class="related-page" href="/blog/what-python-libraries-support-http2/"><span class="icon"></span>What Python libraries support HTTP2?</a></li>
+            <li><a class="related-page" href="/blog/httpx-vs-requests-vs-aiohttp/"><span class="icon"></span>Python httpx vs requests vs aiohttp - key differences</a></li>
+            <li><a class="related-page" href="/blog/html-table-to-xlsx-python-beautifulsoup/"><span class="icon"></span>How to scrape HTML table to Excel Spreadsheet (.xlsx)?</a></li>
+            <li><a class="related-page" href="/blog/how-to-click-on-alert-dialog-in-playwright/"><span class="icon"></span>How to handle popup dialogs in Playwright?</a></li>
+            <li><a class="related-page" href="/blog/how-to-use-proxies-python-httpx/"><span class="icon"></span>How to use proxies with Python httpx?</a></li>
+            <li><a class="related-page" href="/blog/how-to-scrape-images-from-website/"><span class="icon"></span>How to scrape images from a website?</a></li>
+            <li><a class="related-page" href="/blog/how-to-select-dictionary-key-recursively-in-python/"><span class="icon"></span>How to select dictionary key recursively in Python?</a></li>
+            <li><a class="related-page" href="/blog/how-to-check-for-element-in-playwright/"><span class="icon"></span>How to check if element exists in Playwright?</a></li>
+            <li><a class="related-page" href="/blog/what-are-some-ways-to-parse-json-datasets-in-python/"><span class="icon"></span>What are some ways to parse JSON datasets in Python?</a></li>
+            <li><a class="related-page" href="/blog/how-to-use-curl-in-python/"><span class="icon"></span>How to use cURL in Python?</a></li>
+            <li><a class="related-page" href="/blog/selenium-chromedriver-in-path/"><span class="icon"></span>Selenium: chromedriver executable needs to be in PATH?</a></li>
+            <li><a class="related-page" href="/blog/selenium-geckodriver-in-path/"><span class="icon"></span>Selenium: geckodriver executable needs to be in PATH?</a></li>
+            <li><a class="related-page" href="/blog/python-requests-exception-connecttimeout/"><span class="icon"></span>How to fix python requests ConnectTimeout error?</a></li>
+            <li><a class="related-page" href="/blog/python-requests-exception-readtimeout/"><span class="icon"></span>How to fix Python requests ReadTimeout error?</a></li>
+            <li><a class="related-page" href="/blog/python-requests-exception-missingschema/"><span class="icon"></span>How to fix Python requests MissingSchema error?</a></li>
+        </ul></div>
+        <div class="mt-2 text-right"><a href="/blog/knowledgebase/">More &gt;</a></div>
+    </div>    
+                </div>
+                <ul class="sb-tag-list">
+                    <li><a href="/blog/tag/python/">Python</a></li>
+                    <li><a href="/blog/tag/hidden-api/">Hidden API</a></li>
+                    <li><a href="/blog/tag/scrapeguide/">scrapeguide</a></li>
+                </ul>
+                <ul class="social-icon">
+    <li>
+        <a target="_blank"
+            class="plausible-event-name=share plausible-event-share=twitter"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            href="https://twitter.com/share?text=How%20To%20Scrape%20TikTok%20in%202024&amp;url=https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">
+            <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.5028 2.3548C23.6012 2.7552 22.6324 3.024 21.616 3.1472C22.6548 2.5256 23.45 1.54 23.8252 0.3668C22.8536 0.9436 21.7756 1.3608 20.6332 1.5876C19.7176 0.6104 18.41 0 16.9652 0C14.1876 0 11.9364 2.2484 11.9364 5.026C11.9364 5.4208 11.9812 5.8044 12.0652 6.1712C7.8876 5.9612 4.1832 3.962 1.7052 0.9184C1.274 1.6604 1.0248 2.5256 1.0248 3.4468C1.0248 5.1912 1.9124 6.7284 3.2592 7.63C2.436 7.6048 1.6604 7.378 0.9828 7V7.0644C0.9828 9.5004 2.716 11.5304 5.0148 11.9924C4.5948 12.1072 4.1496 12.1688 3.6904 12.1688C3.3656 12.1688 3.052 12.138 2.7468 12.0792C3.3852 14.0756 5.2416 15.5288 7.4396 15.5708C5.7204 16.9176 3.556 17.7212 1.1984 17.7212C0.7924 17.7212 0.3948 17.6988 0 17.6512C2.226 19.0764 4.8664 19.908 7.7056 19.908C16.9512 19.908 22.008 12.25 22.008 5.6084C22.008 5.39 22.0024 5.1744 21.994 4.9588C22.9768 4.2476 23.8308 3.3628 24.5028 2.3548Z" fill="currentColor"/>
+</svg>        </a>
+    </li>
+    <li>
+        <a target="_blank"
+            class="plausible-event-name=share plausible-event-share=linkedin"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            href="https://www.linkedin.com/shareArticle?mini=true&url=https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.1151 1.87207H3.88505C2.82005 1.87207 1.95605 2.71507 1.95605 3.75607V26.2441C1.95605 27.2851 2.82005 28.1251 3.88505 28.1251H26.1151C27.1801 28.1251 28.0441 27.2851 28.0441 26.2441V3.75307C28.0411 2.71507 27.1771 1.87207 26.1151 1.87207ZM9.86405 23.8441H5.92505V11.9941H9.86405V23.8441V23.8441ZM7.89605 10.3771H7.86905C6.54605 10.3771 5.69405 9.46807 5.69405 8.32807C5.69405 7.16407 6.57605 6.27907 7.92005 6.27907C9.27005 6.27907 10.0981 7.16407 10.1221 8.32807C10.1221 9.46807 9.27005 10.3771 7.89605 10.3771ZM24.0721 23.8441H20.1301V17.5051C20.1301 15.9121 19.5631 14.8261 18.1381 14.8261C17.0461 14.8261 16.3981 15.5581 16.1131 16.2661C16.0111 16.5211 15.9871 16.8751 15.9871 17.2261V23.8501H12.0451C12.0451 23.8501 12.0961 13.1101 12.0451 11.9971H15.9871V13.6741C16.5091 12.8671 17.4481 11.7181 19.5361 11.7181C22.1281 11.7181 24.0721 13.4131 24.0721 17.0551V23.8441V23.8441Z" fill="currentColor"/>
+</svg>        </a>
+    </li>
+    <li>
+        <a target="_blank"
+            class="plausible-event-name=share plausible-event-share=facebook"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://scrapfly.io/blog/how-to-scrape-tiktok-python-json/">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.2831 8.9908H14.6794V6.63C14.6794 5.7434 15.2696 5.5354 15.683 5.5354H18.2207V1.638L14.721 1.625C10.8392 1.625 9.95783 4.5318 9.95783 6.3934V8.9908H7.71143V13.0052H9.95783V24.3724H14.682V13.0078H17.8697L18.2831 8.9908Z" fill="currentColor"/>
+</svg>        </a>
+    </li>
+    <li class="copy-link-wrapper plausible-event-name=share plausible-event-share=copy">
+        <a class="copy-link bg-light-red" data-link="https://scrapfly.io/blog/blog/how-to-scrape-tiktok-python-json/" href="#">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.832 5.87385C25.983 4.96785 25.11 4.08585 24.204 3.23685C22.284 1.43985 19.41 1.41285 17.49 3.20385C16.119 4.48485 14.823 5.84385 13.494 7.16685C13.485 7.17585 13.482 7.18785 13.476 7.20285C13.47 7.22385 13.479 7.24785 13.497 7.25385C13.509 7.25985 13.518 7.26285 13.527 7.26285C13.575 7.26585 13.626 7.26585 13.674 7.26585C14.85 7.25085 15.957 7.50585 16.986 8.07885C17.151 8.17185 17.229 8.10285 17.331 7.99785C18.09 7.23585 18.846 6.47085 19.611 5.71785C20.334 5.00385 21.321 5.00685 22.038 5.72085C22.788 6.46485 23.535 7.21185 24.276 7.95885C24.978 8.66685 24.99 9.65685 24.285 10.3649C21.981 12.6899 19.665 15.0028 17.34 17.3098C17.142 17.5078 16.863 17.6638 16.596 17.7448C15.933 17.9488 15.375 17.7148 14.898 17.2348C14.28 16.6108 13.659 15.9929 13.05 15.3839C12.858 15.1919 12.549 15.1919 12.357 15.3839L10.737 17.0069C10.545 17.1989 10.545 17.5078 10.734 17.7028C11.394 18.3778 12.057 19.0678 12.744 19.7338C14.649 21.5818 17.703 21.5699 19.575 19.7459C20.337 19.0019 21.093 18.2519 21.843 17.4959C23.52 15.8129 25.221 14.1569 26.856 12.4349C28.551 10.6439 28.524 7.67985 26.832 5.87385ZM16.446 22.7369C16.419 22.7339 16.395 22.7338 16.368 22.7338C15.174 22.7548 14.043 22.4998 12.999 21.9178C12.828 21.8218 12.753 21.9059 12.654 22.0049C11.901 22.7579 11.151 23.5168 10.395 24.2638C9.64496 25.0048 8.67296 24.9989 7.92596 24.2549C7.22696 23.5589 6.53096 22.8599 5.83196 22.1609C4.96196 21.2909 4.95896 20.3728 5.82896 19.5028L12.504 12.8279C12.573 12.7589 12.642 12.6899 12.714 12.6239C13.242 12.1469 13.974 12.0389 14.589 12.3779C14.799 12.4919 14.985 12.6629 15.156 12.8339C15.762 13.4279 16.359 14.0309 16.95 14.6219C17.142 14.8139 17.451 14.8139 17.643 14.6219C18.192 14.0729 18.738 13.5299 19.302 12.9689C19.494 12.7769 19.491 12.4709 19.299 12.2789C18.525 11.5079 17.766 10.7129 16.935 10.0019C15.123 8.44485 12.3 8.51385 10.554 10.1459C9.31196 11.3099 8.12996 12.5309 6.92696 13.7339C5.66396 14.9999 4.37696 16.2418 3.15596 17.5498C1.43096 19.3948 1.45496 22.3018 3.18296 24.1528C4.02296 25.0528 4.89596 25.9229 5.79296 26.7659C7.69196 28.5509 10.578 28.5869 12.483 26.8109C13.86 25.5239 15.165 24.1589 16.503 22.8299C16.512 22.8209 16.515 22.8058 16.518 22.7878C16.518 22.7638 16.488 22.7399 16.446 22.7369V22.7369Z" fill="currentColor"/>
+</svg>
+            <span class="copied">Copied to clipboard</span>
+        </a>
+    </li>
+</ul>            </div>
+        </div>
+    </div>
+    <div class="container">
+            <div class="related-post-wrapper">
+        <!--related post item -->
+        <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+                <div class="related-post-heading">
+                    <h2>Related Posts</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row posts justify-content-center">
+                <div class="post-card js-post-card">
+    <div class="single-post-card post tag-screenshots tag-python">
+        <div class="feature">
+            <div class="feature_image">
+                <a href="/blog/how-to-track-web-page-changes-using-automated-screenshots/">
+                    <img width="323.54"
+                        height="169"
+                        src="/blog/content/images/how-to-track-web-page-changes-using-automated-screenshots_banner.svg"
+                        alt="How to Track Web Page Changes with Automated Screenshots"
+                    />
+                </a>
+            </div>
+        </div>
+        <div class="post-content">
+            <a class="post-card-link" href="/blog/how-to-track-web-page-changes-using-automated-screenshots/"></a>
+            <div class="post-content-inner">
+                <time class="card-meta-date">
+                    Sep 18, 2024
+                </time>
+                <h5 class="post-title">
+                    <a href="/blog/how-to-track-web-page-changes-using-automated-screenshots/">How to Track Web Page Changes with Automated Screenshots</a>
+                </h5>
+                <p class="excerpt-text">In this tutorial we'll take a look at website change tracking using Python, Playwright and Wand. We'll build a tracking tool and schedule it to send us emails on detected changes.</p>
+            </div>
+
+            <ul class="card-tag-list">
+                <li><a href="/blog/tag/screenshots/">Screenshots</a></li>
+                <li><a href="/blog/tag/python/">Python</a></li>
+            </ul>
+        </div>
+    </div>
+</div>                <div class="post-card js-post-card">
+    <div class="single-post-card post tag-screenshots tag-python tag-headless-browser">
+        <div class="feature">
+            <div class="feature_image">
+                <a href="/blog/how-to-take-screenshots-in-python/">
+                    <img width="323.54"
+                        height="169"
+                        src="/blog/content/images/how-to-take-screenshots-in-python_banner.svg"
+                        alt="How To Take Screenshots In Python?"
+                    />
+                </a>
+            </div>
+        </div>
+        <div class="post-content">
+            <a class="post-card-link" href="/blog/how-to-take-screenshots-in-python/"></a>
+            <div class="post-content-inner">
+                <time class="card-meta-date">
+                    Aug 08, 2024
+                </time>
+                <h5 class="post-title">
+                    <a href="/blog/how-to-take-screenshots-in-python/">How To Take Screenshots In Python?</a>
+                </h5>
+                <p class="excerpt-text">Learn how to take Python screenshots through Selenium and Playwright, including common browser tips and tricks for customizing web page captures.</p>
+            </div>
+
+            <ul class="card-tag-list">
+                <li><a href="/blog/tag/screenshots/">Screenshots</a></li>
+                <li><a href="/blog/tag/python/">Python</a></li>
+                <li><a href="/blog/tag/headless-browser/">Headless Browsers</a></li>
+            </ul>
+        </div>
+    </div>
+</div>                <div class="post-card js-post-card">
+    <div class="single-post-card post tag-ai tag-python tag-project">
+        <div class="feature">
+            <div class="feature_image">
+                <a href="/blog/how-to-use-web-scaping-for-rag-applications/">
+                    <img width="323.54"
+                        height="169"
+                        src="/blog/content/images/how-to-use-web-scaping-for-rag-applications_banner.svg"
+                        alt="How to Power-Up LLMs with Web Scraping and RAG"
+                    />
+                </a>
+            </div>
+        </div>
+        <div class="post-content">
+            <a class="post-card-link" href="/blog/how-to-use-web-scaping-for-rag-applications/"></a>
+            <div class="post-content-inner">
+                <time class="card-meta-date">
+                    Jun 11, 2024
+                </time>
+                <h5 class="post-title">
+                    <a href="/blog/how-to-use-web-scaping-for-rag-applications/">How to Power-Up LLMs with Web Scraping and RAG</a>
+                </h5>
+                <p class="excerpt-text">In depth look at how to use LLM and web scraping for RAG applications using either LlamaIndex or LangChain.</p>
+            </div>
+
+            <ul class="card-tag-list">
+                <li><a href="/blog/tag/ai/">AI</a></li>
+                <li><a href="/blog/tag/python/">Python</a></li>
+                <li><a href="/blog/tag/project/">Project</a></li>
+            </ul>
+        </div>
+    </div>
+</div>        </div>
+    </div>    
+    </div>
+</div>
+
+
+
+<!--- START FOOTER SECTION -->
+<div class="footer-section">
+    <div class="container">
+        <div class="row justify-content-center">
+                <div class="col-md-2">
+  <div class="footer-widget">
+    <h3>Company</h3>
+    <ul>
+      <li><a href="https://scrapfly.io/terms-of-service">Terms of service</a></li>
+      <li><a href="https://scrapfly.io/privacy-policy">Privacy Policy</a></li>
+      <li><a href="https://scrapfly.io/data-processing-agreement">Data Processing Agreement</a></li>
+      <li><a href="https://scrapfly.io/kyc-and-safety">KYC Compliance</a></li>
+      <li><a href="https://scrapfly.statuspage.io/">Status</a></li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="footer-widget">
+    <h3>Tools</h3>
+    <ul>
+      <li><a href="https://scrapfly.io/web-scraping-tools/curl-python">Convert cURL to Python</a></li>
+      <li><a href="https://scrapfly.io/web-scraping-tools/ja3-fingerprint">JA3/TLS Fingerprinting</a></li>
+      <li><a href="https://scrapfly.io/web-scraping-tools/http2-fingerprint">HTTP2 Fingerprinting</a></li>
+      <li><a href="https://scrapfly.io/web-scraping-tools/css-xpath-tester">Xpath/CSS selector Tester</a></li>
+    </ul>
+  </div>
+  <div class="footer-widget">
+    <h3>Resources</h3>
+    <ul>
+      <li><a href="https://scrapfly.io/docs">API Documentation</a></li>
+      <li><a href="https://scrapfly.io/academy">Web Scraping Academy</a></li>
+      <li><a href="https://scrapfly.io/is-web-scraping-legal">Is Web Scraping Legal?</a></li>
+      <li><a href="https://scrapfly.io/web-scraping-tools">Web Scraping Tools</a></li>
+      <li><a href="https://scrapfly.io/faq">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="footer-widget">
+    <h3>Learn Web Scraping</h3>
+    <ul>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-python/">Web Scraping with Python</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-php-101/">Web Scraping with PHP</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-ruby/">Web Scraping with Ruby</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-r/">Web Scraping with R</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-nodejs/">Web Scraping with NodeJS</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-scrapy/">Web Scraping with Python Scrapy</a></li>
+      <li><a href="https://scrapfly.io/blog/how-to-scrape-without-getting-blocked-tutorial/">How to Scrape without getting blocked tutorial</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-python-beautifulsoup/">Web Scraping with Python and BeautifulSoup</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-with-puppeteer-and-nodejs/">Web Scraping with Nodejs and Puppeteer</a></li>
+      <li><a href="https://scrapfly.io/blog/web-scraping-graphql-with-python/">How To Scrape Graphql</a></li>
+      <li><a href="https://scrapfly.io/blog/best-proxy-providers-for-web-scraping/">Best Proxies for Web Scraping</a></li>
+      <li><a href="https://scrapfly.io/blog/top-5-residential-proxy-providers/">Top 5 Best Residential Proxies</a></li>
+    </ul>
+  </div>
+</div>
+<div class="col-md-3">
+  <div class="footer-widget">
+    <h3>Usage</h3>
+    <ul>
+      <li><a href="https://scrapfly.io/use-case/web-scraping-and-growth-hacking">Web Scraping for Growth Hacking</a></li>
+      <li><a href="https://scrapfly.io/use-case/how-web-scraping-can-help-your-e-commerce-business">Web Scraping for Ecommerce</a></li>
+      <li><a href="https://scrapfly.io/use-case/web-scraping-and-finance">Web Scraping for Finance</a></li>
+      <li><a href="https://scrapfly.io/use-case/real-estate-uses-for-web-scraping">Web Scraping for Real Estate</a></li>
+      <li><a href="https://scrapfly.io/use-case/why-you-should-use-web-scraping-for-travel">Web Scraping for Travel</a></li>
+      <li><a href="https://scrapfly.io/use-case/how-web-scraping-can-revolutionize-machine-learning">Web Scraping for Machine Learning</a></li>
+      <li><a href="https://scrapfly.io/use-case/how-web-scraping-can-help-media-news">Web Scraping for News &amp; Media</a></li>
+      <li><a href="https://scrapfly.io/use-case/web-scraping-and-competitive-intelligence">Web Scraping for Competitive Intelligence</a></li>
+      <li><a href="https://scrapfly.io/use-case/web-scraping-and-business-automation">Web Scraping for Business Automation</a></li>
+    </ul>
+  </div>
+</div>
+
+        </div>
+        <div class="row copyright-section">
+            <div class="col-md-6 mx-auto text-center">
+                © 2024 Scrapfly
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var pagination_next_page_number = '',
+        pagination_available_pages_number = '';
+</script>
+
+<script src="/blog/assets/js/single.js?v=0.0.117_5.9.17"></script>
+
+<script src="/blog/assets/js/scripts.js?v=0.0.117_5.9.17"></script>
+
+
+
+<div id="icons" class="d-none">
+    <div id="icon-academy">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g style="fill:#fff"><path d="M1087-226a.733.733 0 0 0-.72.597.646.646 0 0 0-.107-.01h-.02c-.01 0-.012 0-.019.002a.697.697 0 0 0-.648.814.698.698 0 0 0-.594.689c0 .042.01.085.014.13a.921.921 0 0 0-.075 1.364 1.077 1.077 0 0 0 .197 1.59.826.826 0 0 0 .251.851.83.83 0 0 0 .711.19.93.93 0 0 0 1.742-.454v-5.03a.736.736 0 0 0-.734-.735zm.506 5.76a.701.701 0 0 1-1.347.274.114.114 0 0 0-.141-.064.593.593 0 0 1-.587-.118.602.602 0 0 1-.16-.683v-.004a.622.622 0 0 1 .58-.378c.153 0 .153-.23 0-.23-.294 0-.57.15-.727.4a.85.85 0 0 1-.1-1.246.926.926 0 0 0 1.391-.798c0-.156-.231-.156-.228 0a.697.697 0 0 1-1.392 0 .701.701 0 0 1 .306-.554.114.114 0 0 0 .045-.13.453.453 0 0 1-.025-.14c0-.258.209-.468.472-.468l.024.003a.115.115 0 0 0 .118-.145v-.007c0-.014 0-.027-.01-.04a.448.448 0 0 1-.028-.15c0-.255.205-.463.46-.467a.469.469 0 0 1 .458.468c0 .153.23.153.23 0a.698.698 0 0 0-.353-.605.504.504 0 0 1 1.006.055v5.03z" style="fill:#fff;stroke-width:.0763" transform="matrix(3.5471 0 0 3.5471 -3847.064 801.682)"/><path d="M94 45.3c0-3.68-1.66-7.12-4.49-9.41.12-.561.182-1.13.184-1.71 0-4.58-3.39-8.38-7.78-9.04.099-.513.149-1.03.149-1.56 0-4.88-3.84-8.86-8.66-9.11a1.49 1.49 0 0 0-.242-.024c-.04 0-.079.005-.12.006-.04-.001-.079-.006-.12-.006-.458 0-.919.041-1.41.126a9.586 9.586 0 0 0-9.44-7.82c-5.31 0-9.63 4.32-9.63 9.63v65.9c0 6.72 5.47 12.2 12.2 12.2 4.46 0 8.51-2.41 10.6-6.25a9.43 9.43 0 0 0 1.4.198c2.9.185 5.73-.766 7.93-2.69 2.19-1.91 3.52-4.61 3.7-7.51.077-1.23-.06-2.46-.403-3.64 3.8-2.69 6.03-6.95 6.03-11.6 0-3.38-1.22-6.64-3.44-9.22 2.24-2.27 3.51-5.3 3.51-8.46zM90.94 63c0 3.48-1.58 6.68-4.3 8.82-2.01-3.2-5.57-5.24-9.43-5.24-2 0-2 3 0 3a8.157 8.157 0 0 1 7.58 5.21c.41 1.09.592 2.19.521 3.27a7.922 7.922 0 0 1-2.68 5.45 7.865 7.865 0 0 1-5.75 1.95c-.594-.039-1.21-.167-1.93-.402a1.507 1.507 0 0 0-1.85.84 9.164 9.164 0 0 1-8.46 5.6c-5.07 0-9.19-4.12-9.19-9.19v-65.9a6.635 6.635 0 0 1 6.63-6.63c3.4 0 6.19 2.56 6.56 5.91-2.75 1.58-4.61 4.54-4.61 7.93 0 2 3 2 3 0 0-3.34 2.69-6.06 6.02-6.13 3.33.065 6.02 2.79 6.02 6.13 0 .622-.117 1.27-.359 1.97-.07.202-.094.417-.074.63l-.01.035a1.505 1.505 0 0 0 1.55 1.87c.131-.01.262-.026.392-.046a6.15 6.15 0 0 1 6.14 6.14c0 .572-.103 1.16-.322 1.85-.203.635.038 1.33.591 1.7a9.1 9.1 0 0 1 4.01 7.24l-.001.012c0 5.03-4.09 9.12-9.12 9.12-5.03 0-9.12-4.09-9.12-9.12 0-2-3-2-3 0 0 6.68 5.44 12.1 12.1 12.1 2.23 0 4.31-.615 6.11-1.67 1.92 2.09 2.98 4.76 2.98 7.55z" style="fill:#fff" transform="matrix(.27072 0 0 .27072 -1.447 -1.662)"/></g></svg>
+    </div>
+</div>
+
+<div id="newsletterModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <iframe 
+        id="newsletterIframe" 
+        width="540" 
+        height="700" 
+        frameborder="0" 
+        scrolling="auto" 
+        allowfullscreen 
+        style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;">
+    </iframe>
+  </div>
+</div>
+<script defer data-version="1.3" src="/js/script.js"
+        event-type="article"
+        event-tags="|python|hidden-api|scrapeguide|"
+        python
+        event-tag-python="true"
+        hidden-api
+        event-tag-hidden-api="true"
+        scrapeguide
+        event-tag-scrapeguide="true"
+        event-release-year="2024"
+        event-update-year="2024"
+        event-release-month="03"
+        event-update-month="08"
+></script><script async defer type="text/javascript">
+    if (window.localStorage) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let referral = urlParams.get('ref');
+        let referer = document.referrer;
+        let entryLocation = document.location;
+
+        if (referral === '') {
+            referral = null;
+        }
+
+        if (referer === '') {
+            referer = null;
+        }
+
+        if (referral !== null) {
+            localStorage.setItem('referral', referral);
+        }
+
+        if (null === localStorage.getItem('referer')) {
+            localStorage.setItem('referer', referer);
+        }
+
+        if(null === localStorage.getItem('entry_location')) {
+            localStorage.setItem('entry_location', entryLocation)
+        }
+    }
+
+    const robots = new RegExp([
+        /bot/,/spider/,/crawl/,
+        /APIs-Google/,/AdsBot/,/Googlebot/,
+        /mediapartners/,/Google Favicon/,
+        /FeedFetcher/,/Google-Read-Aloud/,
+        /DuplexWeb-Google/,/googleweblight/,
+        /bing/,/yandex/,/baidu/,/duckduck/,/yahoo/,
+        /ecosia/,/ia_archiver/,
+        /facebook/,/instagram/,/pinterest/,/reddit/,
+        /slack/,/twitter/,/whatsapp/,/youtube/,
+        /semrush/,/Headless/
+    ].map((r) => r.source).join("|"),"i");
+
+    let isMobile = Math.min(window.screen.width, window.screen.height) < 768 || navigator.userAgent.indexOf("Mobi") > -1;
+
+    if(!robots.test(navigator.userAgent) && !isMobile && window.localStorage && window.localStorage.test !== navigator.userAgent) {
+        document.addEventListener('readystatechange', async function(event) {
+            if (event.target.readyState === "complete") {
+                const crispLoader = async() => {
+                    window.$crisp=[];
+                    window.CRISP_WEBSITE_ID="1e93ea48-fdf5-4c0f-a0c2-acceb051ddeb";
+                    (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+                    $crisp.push(['do', 'chat:hide']);
+                }
+
+                const scrapflyLoader = async() => {
+                    const loader = function () {
+                        var sc = document.createElement('script');
+                        sc.type = 'text/javascript';
+                        sc.async = true;
+                        sc.src = "https://cdn.scrapfly.io/0.0.224/www/public/js/init.js?version=0.0.224";
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(sc, s);
+                    }
+
+                    setTimeout(loader, 1500);
+                }
+
+                await Promise.all([
+                    crispLoader(),
+                    scrapflyLoader(),
+                ])
+            }
+        });
+    }
+</script>
+</body>
+</html>
