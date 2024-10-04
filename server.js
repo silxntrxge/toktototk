@@ -1,6 +1,6 @@
 import express from 'express';
 import { createRequire } from 'module';
-import { exec } from 'child_process';  // Add this line
+import axios from 'axios';
 
 const require = createRequire(import.meta.url);
 
@@ -9,77 +9,83 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.post('/scrape', (req, res) => {
-  const { action, hashtag, count = 10 } = req.body;
-  const cliPort = 10001;
+async function scrapeTikTokPosts(username, count = 30) {
+    const headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Referer': 'https://www.tiktok.com/',
+    };
 
-  console.log(`[${new Date().toISOString()}] Received scrape request: action=${action}, hashtag=${hashtag}, count=${count}`);
-  
-  const commandToExecute = `CLI_PORT=${cliPort} node bin/cli.js scrape --type=${action} --input=${hashtag} --count=${count}`;
-  console.log(`[${new Date().toISOString()}] Executing command: ${commandToExecute}`);
-  
-  const child = exec(commandToExecute, {
-    timeout: 300000 // 5 minutes timeout
-  }, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`[${new Date().toISOString()}] Exec error: ${error}`);
-      return res.status(500).json({ error: error.message, stderr });
-    }
-    console.log(`[${new Date().toISOString()}] Command completed. Stdout: ${stdout}`);
-    
     try {
-      // Try to parse the JSON output from the CLI
-      const jsonOutput = stdout.split('\n').filter(line => line.trim().startsWith('{')).pop();
-      if (jsonOutput) {
-        const result = JSON.parse(jsonOutput);
-        if (result.success) {
-          res.json(result.data);
-        } else {
-          res.status(500).json({ error: result.error || result.message });
+        // First, fetch the user's secUid
+        const userInfoUrl = `https://www.tiktok.com/node/share/user/@${username}`;
+        const userInfoResponse = await axios.get(userInfoUrl, { headers });
+        const secUid = userInfoResponse.data.userInfo.user.secUid;
+
+        // Now use the secUid to fetch the user's posts
+        const postsUrl = `https://www.tiktok.com/api/post/item_list/?aid=1988&secUid=${secUid}&count=${count}&cursor=0`;
+        const postsResponse = await axios.get(postsUrl, { headers });
+
+        if (!postsResponse.data.itemList) {
+            throw new Error('Unexpected response structure');
         }
-      } else {
-        throw new Error('No valid JSON output found');
-      }
-    } catch (parseError) {
-      console.error(`[${new Date().toISOString()}] Error parsing CLI output:`, parseError);
-      res.status(500).json({ error: 'Failed to parse scraper output', stdout, stderr });
+
+        return postsResponse.data.itemList.map(post => ({
+            createTime: post.createTime,
+            desc: post.desc,
+            id: post.id,
+            stats: post.stats,
+            video: post.video
+        }));
+    } catch (error) {
+        console.error('Error fetching TikTok posts:', error.message);
+        throw error;
     }
-  });
+}
 
-  child.stdout.on('data', (data) => {
-    console.log(`[${new Date().toISOString()}] Child process stdout: ${data.trim()}`);
-  });
+app.post('/scrape', async (req, res) => {
+    const { action, hashtag, count = 10 } = req.body;
 
-  child.stderr.on('data', (data) => {
-    console.error(`[${new Date().toISOString()}] Child process stderr: ${data.trim()}`);
-  });
+    console.log(`[${new Date().toISOString()}] Received scrape request: action=${action}, hashtag=${hashtag}, count=${count}`);
 
-  child.on('exit', (code, signal) => {
-    console.log(`[${new Date().toISOString()}] Child process exited with code ${code} and signal ${signal}`);
-  });
+    try {
+        let result;
+        if (action === 'user') {
+            result = await scrapeTikTokPosts(hashtag, count);
+        } else if (action === 'hashtag') {
+            // Implement hashtag scraping logic here
+            throw new Error('Hashtag scraping not implemented yet');
+        } else {
+            throw new Error('Invalid action specified');
+        }
+
+        res.json({ success: true, data: result });
+    } catch (error) {
+        console.error(`[${new Date().toISOString()}] Scraping error:`, error);
+        res.status(500).json({ success: false, error: error.message });
+    }
 });
 
 app.get('/', (req, res) => {
-  res.send('TikTok Scraper is running. Send a POST request to /scrape to start scraping.');
+    res.send('TikTok Scraper is running. Send a POST request to /scrape to start scraping.');
 });
 
 const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+    console.log(`Server running on port ${port}`);
 });
 
 // Handle graceful shutdown
 process.on('SIGTERM', () => {
-  console.log('SIGTERM signal received: closing HTTP server');
-  server.close(() => {
-    console.log('HTTP server closed');
-    process.exit(0);
-  });
+    console.log('SIGTERM signal received: closing HTTP server');
+    server.close(() => {
+        console.log('HTTP server closed');
+        process.exit(0);
+    });
 });
 
 process.on('SIGINT', () => {
-  console.log('SIGINT signal received: closing HTTP server');
-  server.close(() => {
-    console.log('HTTP server closed');
-    process.exit(0);
-  });
+    console.log('SIGINT signal received: closing HTTP server');
+    server.close(() => {
+        console.log('HTTP server closed');
+        process.exit(0);
+    });
 });
