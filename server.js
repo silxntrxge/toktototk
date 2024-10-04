@@ -1,8 +1,5 @@
 import express from 'express';
-import { createRequire } from 'module';
 import axios from 'axios';
-
-const require = createRequire(import.meta.url);
 
 const app = express();
 const port = process.env.PORT || 3000;
